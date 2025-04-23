@@ -1,0 +1,150 @@
+/*DASHBOARD*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    background: #f3f3f3;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main-layout {
+    display: flex;
+    flex: 1;
+    height: 100%;
+}
+
+.custom-select {
+    position: relative;
+    width: 450px;
+}
+
+.custom-select select {
+    width: 100%;
+    padding: 18px 10px;
+    font-size: 18px;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background-color: #fff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-align: center;
+}
+
+.custom-select::after {
+    content: '▼';
+    font-size: 14px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+/*SIDEBAR*/
+.sidebar {
+    background: #e6e6e6;
+    padding: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar button {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #d3d3d3;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.sidebar button:hover {
+    background-color: #c0c0c0;
+}
+
+main#content-area {
+    padding: 20px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+
+/*FOOTER*/
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f8f8;
+    font-size: 14px;
+    color: #555;
+    border-top: 1px solid #ccc;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #2c3137;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-copy {
+    font-size: 13px;
+    color: #777;
+}

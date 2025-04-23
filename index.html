@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Client Portal</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="custom-select">
+                <select id="clientFilter">
+                    <option selected disabled>Client Filter</option>
+                </select>
+            </div>
+        </header>
+
+
+        <div class="main-layout">
+            <!-- Sidebar menu -->
+            <aside class="sidebar">
+                <button onclick="loadTab('dashboard.html')">Dashboard</button>
+                <button onclick="loadTab('reporting.html')">Reporting</button>
+            </aside>
+
+            <!-- Main content area -->
+            <main id="content-area">
+                <!-- tab content will be injected here -->
+            </main>
+        </div>
+
+        <!--CHART 1-->
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+
+        <!-- Footer -->
+        <footer id="footer-area"></footer>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
