@@ -1,3 +1,12 @@
+
+.site-wrapper {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+
+  
 /*DASHBOARD*/
 body {
     margin: 0;
@@ -151,6 +160,40 @@ header {
     flex: 1;
     overflow: visible;
 }
+
+
+/*CHARTS*/
+.chart-box {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 95%;
+    min-height: 400px;
+    overflow-x: auto;
+  }
+
+  .highcharts-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    fill: #333 !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
