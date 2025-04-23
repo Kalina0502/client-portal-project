@@ -91,12 +91,13 @@ function renderDashboardTable(data) {
     const answersCSV = Object.entries(info.answers)
       .map(([ans, count]) => `${ans} (${count})`).join(', ');
 
-    row.innerHTML = `
+      row.innerHTML = `
       <td>${id}</td>
-      <td>${info.questionText}</td>
-      <td>${answersCSV}</td>
+      <td class="question-text">${info.questionText}</td>
+      <td class="answer-text">${answersCSV}</td>
       <td>${info.total}</td>
     `;
+    
     tableBody.appendChild(row);
   });
 }

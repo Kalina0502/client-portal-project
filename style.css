@@ -7,8 +7,9 @@ body {
 #app {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
 }
+
 
 header {
     background: #f3f3f3;
@@ -33,9 +34,11 @@ header {
 }
 
 .main-layout {
-    display: flex;
     flex: 1;
     height: 100%;
+    display: flex;
+    /*flex-direction: column;  /* ново */
+    /* min-height: 100vh;   /* ново */
 }
 
 .custom-select {
@@ -70,7 +73,46 @@ header {
     color: #555;
 }
 
+/*DASHBOARD TABLE*/
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
 
+.dashboard-table th,
+.dashboard-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    vertical-align: top;
+    text-align: left;
+}
+
+.dashboard-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+
+.dashboard-table td.answer-text,
+.dashboard-table td.question-text {
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.dashboard-table tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.dashboard-table {
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+}
 
 
 
@@ -103,11 +145,13 @@ header {
     background-color: #c0c0c0;
 }
 
-main#content-area {
-    padding: 20px;
+#content-area {
+    min-height: 100vh;
+    overflow: visible;
     flex: 1;
-    overflow-y: auto;
+    overflow: visible;
 }
+
 
 
 /*FOOTER*/
