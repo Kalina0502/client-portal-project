@@ -459,6 +459,13 @@ function renderReportingTable(data) {
     const tr = document.createElement('tr');
     tr.classList.add('reporting-row');
 
+    tr.style.cursor = 'pointer';
+    tr.addEventListener('click', () => {
+      const isVisible = subCell.style.display === 'table-cell';
+      subCell.style.display = isVisible ? 'none' : 'table-cell';
+    });
+
+
     // намиране на top answer
     const topAnswer = Object.entries(info.answers)
       .sort((a, b) => b[1] - a[1])[0][0];
@@ -466,7 +473,7 @@ function renderReportingTable(data) {
     // top иконка с tooltip (ще добавим popper по-късно)
     const topAnswerHtml = `
       <span class="top-answer">${topAnswer}
-        <span class="top-icon" data-tooltip="Top Answer – appears most frequently">★</span>
+        <span class="top-icon" data-tooltip="Top Answer – appears most frequently"></span>
       </span>
     `;
 
@@ -478,6 +485,45 @@ function renderReportingTable(data) {
 
     // добавяме основния ред
     tableBody.appendChild(tr);
+
+    // ред за вътрешната таблица (скрит по подразбиране)
+    const subRow = document.createElement('tr');
+    const subCell = document.createElement('td');
+    subCell.colSpan = 3; // вътрешната таблица заема 3 колони
+    subCell.style.padding = '0';
+    subCell.style.backgroundColor = '#fafafa';
+    subCell.style.display = 'none'; // скрит по подразбиране
+
+    // създаваме самата таблица
+    const subTable = document.createElement('table');
+    subTable.classList.add('sub-table');
+    subTable.style.width = '100%';
+    subTable.innerHTML = `
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>Percentage</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    ${Object.entries(info.answers).map(([answer, count]) => {
+      const percent = ((count / info.total) * 100).toFixed(2);
+      return `
+          <tr>
+            <td>${answer}</td>
+            <td>${percent}%</td>
+            <td>${count}</td>
+          </tr>
+        `;
+    }).join('')
+      }
+  </tbody>
+`;
+
+    subCell.appendChild(subTable);
+    subRow.appendChild(subCell);
+    tableBody.appendChild(subRow);
 
     // TODO: ще добавим вложена таблица при клик
   });
