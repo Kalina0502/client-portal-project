@@ -136,14 +136,14 @@ function populateClientFilter(data) {
     if (currentTab === 'reporting') {
       const table = document.getElementById('reporting-table');
       const warning = document.getElementById('select-warning-reporting');
-    
+
       if (table) table.style.display = 'block';
       if (warning) warning.style.display = 'none';
-    
+
       renderReportingTable(filtered);
     }
-    
-    
+
+
   });
 }
 

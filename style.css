@@ -6,13 +6,15 @@
 }
 
 /*SELECT NAME MESSAGE*/
-#select-warning {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 18px;
-    color: #333030;
-    font-weight: bold;
+#select-warning,
+.select-warning {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+  color: #333030;
+  font-weight: bold;
 }
+
 
 /*DASHBOARD*/
 body {
@@ -185,8 +187,6 @@ header {
 
 /* REPORTING */
 
-/* ========== REPORTING ========== */
-
 /* Главна таблица – заглавия */
 .main-report-table thead th {
     background-color: #979696; 
@@ -214,8 +214,7 @@ header {
     border-bottom: 1px solid #e5e5e5;
 }
 
-/* ========== ВТОРА ТАБЛИЦА (подтаблица) ========== */
-
+/*2-ра таблица*/
 .sub-table thead th {
     background-color: #e2e0e0; 
     color: rgb(8, 7, 7);
