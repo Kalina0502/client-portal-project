@@ -21,25 +21,34 @@ function loadTab(filename) {
       } else if (filename === 'reporting.html') {
         buttons[1].classList.add('active');
       }
+
+
     });
 
-  if (filename === 'reporting.html') {
-    setTimeout(() => {
-      fetch('data.json')
-        .then(res => res.json())
-        .then(data => {
-          jsonData = data.data[0];
-          populateClientFilter(jsonData);
-
-          // ако вече има избрано име – зареди директно reporting
-          if (selectedClient) {
-            const filtered = jsonData.filter(d => d.Col006 === selectedClient);
-            renderReportingTable(filtered);
-          }
-        });
-    }, 100);
-  }
-
+    if (filename === 'reporting.html') {
+      setTimeout(() => {
+        const table = document.getElementById('reporting-table');
+        const warning = document.getElementById('select-warning-reporting');
+    
+        fetch('data.json')
+          .then(res => res.json())
+          .then(data => {
+            jsonData = data.data[0];
+            populateClientFilter(jsonData);
+    
+            if (selectedClient) {
+              const filtered = jsonData.filter(d => d.Col006 === selectedClient);
+              if (table) table.style.display = 'block';
+              if (warning) warning.style.display = 'none';
+              renderReportingTable(filtered);
+            } else {
+              if (table) table.style.display = 'none';
+              if (warning) warning.style.display = 'block';
+            }
+          });
+      }, 100);
+    }
+    
 
 
   // Вмъкнат е dashboard.html,достъпваме неговите елементи
@@ -51,7 +60,7 @@ function loadTab(filename) {
           jsonData = data.data[0];
           populateClientFilter(jsonData);
 
-          // 🔹 ако има избран клиент, зареди директно
+          //  ако има избран клиент, зареди директно
           if (selectedClient) {
             const filtered = jsonData.filter(d => d.Col006 === selectedClient);
 
@@ -79,9 +88,19 @@ function loadTab(filename) {
     }, 100);
 
 
-    const contentBox = document.getElementById('dashboard-content');
-    const warning = document.getElementById('select-warning');
-
+    setTimeout(() => {
+      const contentBox = document.getElementById('dashboard-content');
+      const warning = document.getElementById('select-warning');
+    
+      if (selectedClient) {
+        if (contentBox) contentBox.style.display = 'block';
+        if (warning) warning.style.display = 'none';
+      } else {
+        if (contentBox) contentBox.style.display = 'none';
+        if (warning) warning.style.display = 'block';
+      }
+    }, 150);
+    
     if (selectedClient) {
       if (contentBox) contentBox.style.display = 'block';
       if (warning) warning.style.display = 'none';
@@ -101,8 +120,8 @@ window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
 
 
-  document.getElementById('dashboard-content').style.display = 'block';
-  document.getElementById('select-warning').style.display = 'none';
+  // document.getElementById('dashboard-content').style.display = 'block';
+  // document.getElementById('select-warning').style.display = 'none';
 
 
   // изчакваме малко, за да е зареден tab-a
@@ -161,8 +180,16 @@ function populateClientFilter(data) {
     }
 
     if (currentTab === 'reporting') {
+      const table = document.getElementById('reporting-table');
+      const warning = document.getElementById('select-warning-reporting');
+    
+      if (table) table.style.display = 'block';
+      if (warning) warning.style.display = 'none';
+    
       renderReportingTable(filtered);
     }
+    
+    
   });
 }
 
