@@ -430,7 +430,7 @@ function renderBottom3Chart(data) {
 //REPORTING
 function renderReportingTable(data) {
   const tableBody = document.getElementById('reporting-table-body');
-  tableBody.innerHTML = ''; // изчистваме старото съдържание
+  tableBody.innerHTML = '';
 
   const grouped = {};
 
@@ -454,7 +454,7 @@ function renderReportingTable(data) {
     grouped[question].answers[answer] += count;
   });
 
-  // 2. Създаване на редове
+  // Създаване на редове
   Object.entries(grouped).forEach(([question, info], index) => {
     const tr = document.createElement('tr');
     tr.classList.add('reporting-row');
@@ -483,18 +483,15 @@ function renderReportingTable(data) {
       <td>${info.total}</td>
     `;
 
-    // добавяме основния ред
     tableBody.appendChild(tr);
 
-    // ред за вътрешната таблица (скрит по подразбиране)
     const subRow = document.createElement('tr');
     const subCell = document.createElement('td');
-    subCell.colSpan = 3; // вътрешната таблица заема 3 колони
+    subCell.colSpan = 3;
     subCell.style.padding = '0';
     subCell.style.backgroundColor = '#fafafa';
-    subCell.style.display = 'none'; // скрит по подразбиране
+    subCell.style.display = 'none';
 
-    // създаваме самата таблица
     const subTable = document.createElement('table');
     subTable.classList.add('sub-table');
     subTable.style.width = '100%';
@@ -524,8 +521,6 @@ function renderReportingTable(data) {
     subCell.appendChild(subTable);
     subRow.appendChild(subCell);
     tableBody.appendChild(subRow);
-
-    // TODO: ще добавим вложена таблица при клик
   });
 }
 

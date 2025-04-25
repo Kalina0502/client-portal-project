@@ -52,8 +52,6 @@ header {
     flex: 1;
     height: 100%;
     display: flex;
-    /*flex-direction: column;  /* ново */
-    /* min-height: 100vh;   /* ново */
 }
 
 .custom-select {
@@ -160,7 +158,6 @@ header {
 
 
 #content-area {
-    /* min-height: 100vh;*/
     overflow: visible;
     flex: 1;
 }
