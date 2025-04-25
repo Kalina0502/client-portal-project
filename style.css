@@ -224,6 +224,24 @@ header {
 }
 
 
+/*Top answer*/
+.top-answer-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-weight: normal;
+}
+
+.top-answer-text {
+    font-size: 17px;
+}
+
+.top-answer-percent {
+    font-size: 15px;
+    color: #666;
+    font-weight: normal;
+}
 
 
 /*FOOTER*/

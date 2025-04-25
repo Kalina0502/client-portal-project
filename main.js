@@ -454,13 +454,20 @@ function renderReportingTable(data) {
     const tr = document.createElement('tr');
     tr.classList.add('reporting-row');
 
-    const topAnswer = Object.entries(info.answers).sort((a, b) => b[1] - a[1])[0][0];
+    // намиране на top answer и неговия процент
+    const [topAnswerText, topAnswerCount] = Object.entries(info.answers)
+      .sort((a, b) => b[1] - a[1])[0];
 
+    const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
+
+    // топ отговор с процент на нов ред
     const topAnswerHtml = `
-      <span class="top-answer">${topAnswer}
-        <span class="top-icon" data-tooltip="Top Answer – appears most frequently"></span>
-      </span>
-    `;
+<div class="top-answer-cell">
+  <div class="top-answer-text">${topAnswerText}</div>
+  <div class="top-answer-percent">${topAnswerPercentage}%</div>
+</div>
+`;
+
 
     const questionTd = document.createElement('td');
     questionTd.innerText = question;
