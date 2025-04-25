@@ -15,80 +15,83 @@ function loadTab(filename) {
       const buttons = document.querySelectorAll('.sidebar button');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // добавяне .active на бутона според filename
+      // добавяне .active на съответния бутон
       if (filename === 'dashboard.html') {
         buttons[0].classList.add('active');
-      }
-
-      if (filename === 'reporting.html') {
-        setTimeout(() => {
-          fetch('data.json')
-            .then(res => res.json())
-            .then(data => {
-              jsonData = data.data[0];
-              populateClientFilter(jsonData);
-
-              // 👇 ако вече има избрано име – зареди директно reporting
-              if (selectedClient) {
-                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
-                renderReportingTable(filtered);
-              }
-            });
-        }, 100);
-      }
-
-
-
-      // Вмъкнат е dashboard.html,достъпваме неговите елементи
-      if (filename === 'dashboard.html') {
-        setTimeout(() => {
-          fetch('data.json')
-            .then(res => res.json())
-            .then(data => {
-              jsonData = data.data[0];
-              populateClientFilter(jsonData);
-
-              // 🔹 ако има избран клиент, зареди директно
-              if (selectedClient) {
-                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
-
-                // избираме клиента и визуално:
-                const select = document.getElementById('clientFilter');
-                if (select) select.value = selectedClient;
-
-                if (selectedClient) {
-                  // Клиент вече е избран – директно зареждаме съдържанието
-                  if (contentBox) contentBox.style.display = 'block';
-                  if (warning) warning.style.display = 'none';
-                } else {
-                  // Няма избран клиент – показваме съобщението
-                  if (contentBox) contentBox.style.display = 'none';
-                  if (warning) warning.style.display = 'block';
-                }
-
-
-                renderDashboardTable(filtered);
-                renderAllQuestionsChart(filtered);
-                renderTop3Chart(filtered);
-                renderBottom3Chart(filtered);
-              }
-            });
-        }, 100);
-
-
-        const contentBox = document.getElementById('dashboard-content');
-        const warning = document.getElementById('select-warning');
-
-        if (selectedClient) {
-          if (contentBox) contentBox.style.display = 'block';
-          if (warning) warning.style.display = 'none';
-        } else {
-          if (contentBox) contentBox.style.display = 'none';
-          if (warning) warning.style.display = 'block';
-        }
+      } else if (filename === 'reporting.html') {
+        buttons[1].classList.add('active');
       }
     });
-}
+
+  if (filename === 'reporting.html') {
+    setTimeout(() => {
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          jsonData = data.data[0];
+          populateClientFilter(jsonData);
+
+          // ако вече има избрано име – зареди директно reporting
+          if (selectedClient) {
+            const filtered = jsonData.filter(d => d.Col006 === selectedClient);
+            renderReportingTable(filtered);
+          }
+        });
+    }, 100);
+  }
+
+
+
+  // Вмъкнат е dashboard.html,достъпваме неговите елементи
+  if (filename === 'dashboard.html') {
+    setTimeout(() => {
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          jsonData = data.data[0];
+          populateClientFilter(jsonData);
+
+          // 🔹 ако има избран клиент, зареди директно
+          if (selectedClient) {
+            const filtered = jsonData.filter(d => d.Col006 === selectedClient);
+
+            // избираме клиента и визуално:
+            const select = document.getElementById('clientFilter');
+            if (select) select.value = selectedClient;
+
+            if (selectedClient) {
+              // Клиент вече е избран – директно зареждаме съдържанието
+              if (contentBox) contentBox.style.display = 'block';
+              if (warning) warning.style.display = 'none';
+            } else {
+              // Няма избран клиент – показваме съобщението
+              if (contentBox) contentBox.style.display = 'none';
+              if (warning) warning.style.display = 'block';
+            }
+
+
+            renderDashboardTable(filtered);
+            renderAllQuestionsChart(filtered);
+            renderTop3Chart(filtered);
+            renderBottom3Chart(filtered);
+          }
+        });
+    }, 100);
+
+
+    const contentBox = document.getElementById('dashboard-content');
+    const warning = document.getElementById('select-warning');
+
+    if (selectedClient) {
+      if (contentBox) contentBox.style.display = 'block';
+      if (warning) warning.style.display = 'none';
+    } else {
+      if (contentBox) contentBox.style.display = 'none';
+      if (warning) warning.style.display = 'block';
+    }
+  }
+};
+
 
 
 
