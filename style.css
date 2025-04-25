@@ -1,12 +1,11 @@
-
 .site-wrapper {
     max-width: 1520px;
     margin: 0 auto;
     padding: 0px;
     box-sizing: border-box;
-  }
+}
 
-  
+
 /*DASHBOARD*/
 body {
     margin: 0;
@@ -82,47 +81,6 @@ header {
     color: #555;
 }
 
-/*DASHBOARD TABLE*/
-.dashboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-}
-
-.dashboard-table th,
-.dashboard-table td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    vertical-align: top;
-    text-align: left;
-}
-
-.dashboard-table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-
-.dashboard-table td.answer-text,
-.dashboard-table td.question-text {
-    max-height: 120px;
-    overflow-y: auto;
-}
-
-.dashboard-table tr:nth-child(even) {
-    background-color: #fafafa;
-}
-
-.table-wrapper {
-    overflow-x: auto;
-}
-
-.dashboard-table {
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    font-size: 14px;
-}
-
 
 /*DASHBOARD DATA TABLE*/
 .data-box {
@@ -131,16 +89,16 @@ header {
     border-radius: 12px;
     margin: 20px auto;
     max-width: 95%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* По-силна сянка */
     overflow-x: auto;
-  }
-  
-  .data-box table {
+}
+
+.data-box table {
     width: 100%;
     border-collapse: collapse;
-  }
-  
-  .data-box th {
+}
+
+.data-box th {
     padding: 12px 15px;
     text-align: center;
     vertical-align: middle;
@@ -148,23 +106,18 @@ header {
 
 .data-box td {
     padding: 12px 15px;
-    text-align: left;
     vertical-align: top;
+    text-align: justify;
 }
 
-  
-  .data-box thead {
+.data-box thead {
     background-color: #f2f2f2;
     font-weight: bold;
-  }
-  
-  .data-box tr:nth-child(even) {
+}
+
+.data-box tr:nth-child(even) {
     background-color: #fafafa;
-  }
-  
-
-
-
+}
 
 
 
@@ -192,11 +145,17 @@ header {
     background-color: #c0c0c0;
 }
 
+.sidebar button.active {
+    background-color: #b0b0b0;
+    font-weight: bold;
+    color: #000;
+  }
+  
+
 #content-area {
-    min-height: 100vh;
+   /* min-height: 100vh;*/
     overflow: visible;
     flex: 1;
-    overflow: visible;
 }
 
 
@@ -206,17 +165,17 @@ header {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     max-width: 95%;
     min-height: 400px;
     overflow-x: auto;
-  }
+}
 
-  .highcharts-title {
+.highcharts-title {
     font-size: 18px !important;
     font-weight: 600 !important;
     fill: #333 !important;
-  }
+}
 
 
 

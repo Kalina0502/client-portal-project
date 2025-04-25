@@ -1,30 +1,29 @@
-<!-- Контейнери за графики -->
-<div id="charts">
+
+<p id="select-warning" style="text-align: center; margin-top: 40px;">
+  Please select a client to view the dashboard.
+</p>
+
+<!-- Таблица и диаграми – скриваем контейнер -->
+<div id="dashboard-content" style="display: none;">
+  <!-- CHARTS -->
   <div id="all-questions-chart" class="chart-box"></div>
   <div id="top-questions-chart" class="chart-box"></div>
   <div id="bottom-questions-chart" class="chart-box"></div>
-</div>
 
-<!-- Таблица с данни -->
-<div id="dashboard-table" class="data-box">
-  <table>
-    <thead>
-      <tr>
-        <th>Question ID</th>
-        <th>Question Text</th>
-        <th>Answer Text</th>
-        <th>Responses</th>
-      </tr>
-    </thead>
-    <tbody id="dashboard-table-body">
-      <!-- Данни ще се добавят чрез JS -->
-    </tbody>
-  </table>
+  <!-- Таблица -->
+  <div id="dashboard-table" class="data-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Question ID</th>
+          <th>Question Text</th>
+          <th>Answer Text</th>
+          <th>Responses</th>
+        </tr>
+      </thead>
+      <tbody id="dashboard-table-body">
+        <!-- Данни ще се добавят чрез JS -->
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<!--CHART 1-->
-<div id="all-questions-chart" class="chart-box"></div>
-<!--CHART 2-->
-<div id="top-questions-chart" class="chart-box"></div>
-<!--CHART 3-->
-<div id="bottom-questions-chart" class="chart-box"></div>

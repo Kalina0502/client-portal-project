@@ -3,12 +3,49 @@ function loadTab(filename) {
     .then(res => res.text())
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
+
+      // Намираме бутоните в sidebar и премахваме .active от всички
+      const buttons = document.querySelectorAll('.sidebar button');
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      // Добавяме .active на бутона според filename
+      if (filename === 'dashboard.html') {
+        buttons[0].classList.add('active');
+      }
+      if (filename === 'reporting.html') {
+        buttons[1].classList.add('active');
+      }
+
+
+      // Вмъкнат е dashboard.html,достъпваме неговите елементи
+      if (filename === 'dashboard.html') {
+        setTimeout(() => {
+          fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+              jsonData = data.data[0];
+              populateClientFilter(jsonData);
+            });
+        }, 100);
+
+        // Скриваме съдържанието докато няма клиент
+        const contentBox = document.getElementById('dashboard-content');
+        const warning = document.getElementById('select-warning');
+        if (contentBox) contentBox.style.display = 'none';
+        if (warning) warning.style.display = 'block';
+      }
     });
 }
+
 
 // Зареждаме Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
+
+
+  document.getElementById('dashboard-content').style.display = 'block';
+  document.getElementById('select-warning').style.display = 'none';
+
 
   // изчакваме малко, за да е зареден tab-a
   setTimeout(() => {
@@ -32,8 +69,12 @@ let jsonData = []; // ще държи всички данни
 let currentClientData = []; // филтрирани данни според избрания клиент
 
 function populateClientFilter(data) {
-  const clients = [...new Set(data.map(d => d.Col006))];
   const select = document.getElementById('clientFilter');
+
+  // Ако вече има клиенти заредени – прекрати
+  if (select.dataset.loaded === "true") return;
+
+  const clients = [...new Set(data.map(d => d.Col006))];
 
   clients.forEach(client => {
     const option = document.createElement('option');
@@ -42,10 +83,18 @@ function populateClientFilter(data) {
     select.appendChild(option);
   });
 
+  // Маркирай, че вече са заредени
+  select.dataset.loaded = "true";
+
+  // Добави логиката при избор
   select.addEventListener('change', () => {
     const client = select.value;
     const filtered = data.filter(d => d.Col006 === client);
-    renderDashboardTable(filtered);
+
+    const contentBox = document.getElementById('dashboard-content');
+    const warning = document.getElementById('select-warning');
+    if (contentBox) contentBox.style.display = 'block';
+    if (warning) warning.style.display = 'none';
 
     renderDashboardTable(filtered);
     renderAllQuestionsChart(filtered);
@@ -53,6 +102,7 @@ function populateClientFilter(data) {
     renderBottom3Chart(filtered);
   });
 }
+
 
 
 function renderDashboardTable(data) {
@@ -91,13 +141,13 @@ function renderDashboardTable(data) {
     const answersCSV = Object.entries(info.answers)
       .map(([ans, count]) => `${ans} (${count})`).join(', ');
 
-      row.innerHTML = `
+    row.innerHTML = `
       <td>${id}</td>
       <td class="question-text">${info.questionText}</td>
       <td class="answer-text">${answersCSV}</td>
       <td>${info.total}</td>
     `;
-    
+
     tableBody.appendChild(row);
   });
 }
