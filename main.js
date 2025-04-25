@@ -434,7 +434,6 @@ function renderReportingTable(data) {
 
   const grouped = {};
 
-  // 1. Групиране по въпрос
   data.forEach(row => {
     const question = row.Col005;
     const answer = row.Col002;
@@ -448,46 +447,45 @@ function renderReportingTable(data) {
     }
 
     grouped[question].total += count;
-    if (!grouped[question].answers[answer]) {
-      grouped[question].answers[answer] = 0;
-    }
-    grouped[question].answers[answer] += count;
+    grouped[question].answers[answer] = (grouped[question].answers[answer] || 0) + count;
   });
 
-  // Създаване на редове
-  Object.entries(grouped).forEach(([question, info], index) => {
+  Object.entries(grouped).forEach(([question, info]) => {
     const tr = document.createElement('tr');
     tr.classList.add('reporting-row');
 
-    tr.style.cursor = 'pointer';
-    tr.addEventListener('click', () => {
-      const isVisible = subCell.style.display === 'table-cell';
-      subCell.style.display = isVisible ? 'none' : 'table-cell';
-    });
+    const topAnswer = Object.entries(info.answers).sort((a, b) => b[1] - a[1])[0][0];
 
-
-    // намиране на top answer
-    const topAnswer = Object.entries(info.answers)
-      .sort((a, b) => b[1] - a[1])[0][0];
-
-    // top иконка с tooltip (ще добавим popper по-късно)
     const topAnswerHtml = `
       <span class="top-answer">${topAnswer}
         <span class="top-icon" data-tooltip="Top Answer – appears most frequently"></span>
       </span>
     `;
 
-    tr.innerHTML = `
-      <td>${question}</td>
-      <td>${topAnswerHtml}</td>
-      <td>${info.total}</td>
-    `;
+    const questionTd = document.createElement('td');
+    questionTd.innerText = question;
 
-    tableBody.appendChild(tr);
+    const topAnswerTd = document.createElement('td');
+    topAnswerTd.innerHTML = topAnswerHtml;
+
+    const totalTd = document.createElement('td');
+    totalTd.classList.add('responses-cell');
+    totalTd.innerHTML = `
+  <span class="response-count">${info.total}</span>
+  <span class="arrow-icon">▼</span>
+`;
+
+
+    const arrowIcon = totalTd.querySelector('.arrow-icon');
+
+    tr.appendChild(questionTd);
+    tr.appendChild(topAnswerTd);
+    tr.appendChild(totalTd);
+
 
     const subRow = document.createElement('tr');
     const subCell = document.createElement('td');
-    subCell.colSpan = 3;
+    subCell.colSpan = 4;
     subCell.style.padding = '0';
     subCell.style.backgroundColor = '#fafafa';
     subCell.style.display = 'none';
@@ -496,30 +494,37 @@ function renderReportingTable(data) {
     subTable.classList.add('sub-table');
     subTable.style.width = '100%';
     subTable.innerHTML = `
-  <thead>
-    <tr>
-      <th>Answer</th>
-      <th>Percentage</th>
-      <th>Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    ${Object.entries(info.answers).map(([answer, count]) => {
+      <thead>
+        <tr>
+          <th class="left-align">Answer</th>
+          <th class="right-align">Percentage</th>
+          <th class="right-align">Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${Object.entries(info.answers).map(([answer, count]) => {
       const percent = ((count / info.total) * 100).toFixed(2);
       return `
-          <tr>
-            <td>${answer}</td>
-            <td>${percent}%</td>
-            <td>${count}</td>
-          </tr>
-        `;
-    }).join('')
-      }
-  </tbody>
-`;
+            <tr>
+              <td class="left-align">${answer}</td>
+              <td class="right-align">${percent}%</td>
+              <td class="right-align">${count}</td>
+            </tr>
+          `;
+    }).join('')}
+      </tbody>
+    `;
 
     subCell.appendChild(subTable);
     subRow.appendChild(subCell);
+
+    tr.addEventListener('click', () => {
+      const isVisible = subCell.style.display === 'table-cell';
+      subCell.style.display = isVisible ? 'none' : 'table-cell';
+      arrowIcon.textContent = isVisible ? '▼' : '▲';
+    });
+
+    tableBody.appendChild(tr);
     tableBody.appendChild(subRow);
   });
 }

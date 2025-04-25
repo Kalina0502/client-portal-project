@@ -183,14 +183,45 @@ header {
 
 
 /*REPORTING*/
+.reporting-row {
+    border-top: 1px solid #ddd;
+    background-color: #fdfdfd;
+    transition: background-color 0.2s ease;
+}
 
+.reporting-row:hover {
+    background-color: #f3f3f3;
+}
 
+.reporting-row td {
+    padding: 16px 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
 
+.reporting-row {
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+}
 
+/* Strelka */
+.reporting-row {
+    cursor: pointer;
+}
 
+.responses-cell {
+    text-align: right;
+    cursor: pointer;
+}
 
+.response-count {
+    margin-right: 8px;
+}
 
-
+.arrow-icon {
+    font-size: 12px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
 
 
 
