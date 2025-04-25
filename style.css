@@ -12,8 +12,7 @@
     font-size: 18px;
     color: #333030;
     font-weight: bold;
-  }
-  
+}
 
 /*DASHBOARD*/
 body {
@@ -26,7 +25,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
 
 header {
     background: #f3f3f3;
@@ -98,7 +96,7 @@ header {
     border-radius: 12px;
     margin: 20px auto;
     max-width: 95%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* По-силна сянка */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
 }
 
@@ -158,11 +156,11 @@ header {
     background-color: #b0b0b0;
     font-weight: bold;
     color: #000;
-  }
-  
+}
+
 
 #content-area {
-   /* min-height: 100vh;*/
+    /* min-height: 100vh;*/
     overflow: visible;
     flex: 1;
 }

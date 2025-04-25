@@ -1,5 +1,7 @@
 
 let selectedClient = null; // ще пазим текущо избрания клиент
+let currentTab = 'dashboard';
+
 
 function loadTab(filename) {
   fetch(filename)
@@ -7,17 +9,34 @@ function loadTab(filename) {
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
 
-      // Намираме бутоните в sidebar и премахваме .active от всички
+      currentTab = filename.includes('reporting') ? 'reporting' : 'dashboard';
+
+      // премахване .active от всички
       const buttons = document.querySelectorAll('.sidebar button');
       buttons.forEach(btn => btn.classList.remove('active'));
 
-      // Добавяме .active на бутона според filename
+      // добавяне .active на бутона според filename
       if (filename === 'dashboard.html') {
         buttons[0].classList.add('active');
       }
+
       if (filename === 'reporting.html') {
-        buttons[1].classList.add('active');
+        setTimeout(() => {
+          fetch('data.json')
+            .then(res => res.json())
+            .then(data => {
+              jsonData = data.data[0];
+              populateClientFilter(jsonData);
+
+              // 👇 ако вече има избрано име – зареди директно reporting
+              if (selectedClient) {
+                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
+                renderReportingTable(filtered);
+              }
+            });
+        }, 100);
       }
+
 
 
       // Вмъкнат е dashboard.html,достъпваме неговите елементи
@@ -72,6 +91,8 @@ function loadTab(filename) {
 }
 
 
+
+
 // Зареждаме Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
@@ -117,24 +138,28 @@ function populateClientFilter(data) {
     select.appendChild(option);
   });
 
-  // Маркирай, че вече са заредени
   select.dataset.loaded = "true";
 
-  // Добави логиката при избор
   select.addEventListener('change', () => {
     const client = select.value;
-    selectedClient = client; // 🔹 запомни избора
+    selectedClient = client;
     const filtered = data.filter(d => d.Col006 === client);
 
-    const contentBox = document.getElementById('dashboard-content');
-    const warning = document.getElementById('select-warning');
-    if (contentBox) contentBox.style.display = 'block';
-    if (warning) warning.style.display = 'none';
+    if (currentTab === 'dashboard') {
+      const contentBox = document.getElementById('dashboard-content');
+      const warning = document.getElementById('select-warning');
+      if (contentBox) contentBox.style.display = 'block';
+      if (warning) warning.style.display = 'none';
 
-    renderDashboardTable(filtered);
-    renderAllQuestionsChart(filtered);
-    renderTop3Chart(filtered);
-    renderBottom3Chart(filtered);
+      renderDashboardTable(filtered);
+      renderAllQuestionsChart(filtered);
+      renderTop3Chart(filtered);
+      renderBottom3Chart(filtered);
+    }
+
+    if (currentTab === 'reporting') {
+      renderReportingTable(filtered);
+    }
   });
 }
 
@@ -398,6 +423,65 @@ function renderBottom3Chart(data) {
 }
 
 
+
+
+
+
+//REPORTING
+function renderReportingTable(data) {
+  const tableBody = document.getElementById('reporting-table-body');
+  tableBody.innerHTML = ''; // изчистваме старото съдържание
+
+  const grouped = {};
+
+  // 1. Групиране по въпрос
+  data.forEach(row => {
+    const question = row.Col005;
+    const answer = row.Col002;
+    const count = parseInt(row.Col003);
+
+    if (!grouped[question]) {
+      grouped[question] = {
+        total: 0,
+        answers: {}
+      };
+    }
+
+    grouped[question].total += count;
+    if (!grouped[question].answers[answer]) {
+      grouped[question].answers[answer] = 0;
+    }
+    grouped[question].answers[answer] += count;
+  });
+
+  // 2. Създаване на редове
+  Object.entries(grouped).forEach(([question, info], index) => {
+    const tr = document.createElement('tr');
+    tr.classList.add('reporting-row');
+
+    // намиране на top answer
+    const topAnswer = Object.entries(info.answers)
+      .sort((a, b) => b[1] - a[1])[0][0];
+
+    // top иконка с tooltip (ще добавим popper по-късно)
+    const topAnswerHtml = `
+      <span class="top-answer">${topAnswer}
+        <span class="top-icon" data-tooltip="Top Answer – appears most frequently">★</span>
+      </span>
+    `;
+
+    tr.innerHTML = `
+      <td>${question}</td>
+      <td>${topAnswerHtml}</td>
+      <td>${info.total}</td>
+    `;
+
+    // добавяме основния ред
+    tableBody.appendChild(tr);
+
+    // TODO: ще добавим вложена таблица при клик
+  });
+}
 
 
 
