@@ -5,6 +5,15 @@
     box-sizing: border-box;
 }
 
+/*SELECT NAME MESSAGE*/
+#select-warning {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #333030;
+    font-weight: bold;
+  }
+  
 
 /*DASHBOARD*/
 body {

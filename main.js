@@ -1,3 +1,6 @@
+
+let selectedClient = null; // ще пазим текущо избрания клиент
+
 function loadTab(filename) {
   fetch(filename)
     .then(res => res.text())
@@ -25,14 +28,45 @@ function loadTab(filename) {
             .then(data => {
               jsonData = data.data[0];
               populateClientFilter(jsonData);
+
+              // 🔹 ако има избран клиент, зареди директно
+              if (selectedClient) {
+                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
+
+                // избираме клиента и визуално:
+                const select = document.getElementById('clientFilter');
+                if (select) select.value = selectedClient;
+
+                if (selectedClient) {
+                  // Клиент вече е избран – директно зареждаме съдържанието
+                  if (contentBox) contentBox.style.display = 'block';
+                  if (warning) warning.style.display = 'none';
+                } else {
+                  // Няма избран клиент – показваме съобщението
+                  if (contentBox) contentBox.style.display = 'none';
+                  if (warning) warning.style.display = 'block';
+                }
+
+
+                renderDashboardTable(filtered);
+                renderAllQuestionsChart(filtered);
+                renderTop3Chart(filtered);
+                renderBottom3Chart(filtered);
+              }
             });
         }, 100);
 
-        // Скриваме съдържанието докато няма клиент
+
         const contentBox = document.getElementById('dashboard-content');
         const warning = document.getElementById('select-warning');
-        if (contentBox) contentBox.style.display = 'none';
-        if (warning) warning.style.display = 'block';
+
+        if (selectedClient) {
+          if (contentBox) contentBox.style.display = 'block';
+          if (warning) warning.style.display = 'none';
+        } else {
+          if (contentBox) contentBox.style.display = 'none';
+          if (warning) warning.style.display = 'block';
+        }
       }
     });
 }
@@ -89,6 +123,7 @@ function populateClientFilter(data) {
   // Добави логиката при избор
   select.addEventListener('change', () => {
     const client = select.value;
+    selectedClient = client; // 🔹 запомни избора
     const filtered = data.filter(d => d.Col006 === client);
 
     const contentBox = document.getElementById('dashboard-content');
