@@ -1,0 +1,23 @@
+{
+  "name": "client-portal-project",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kalina0502/client-portal-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kalina0502/client-portal-project/issues"
+  },
+  "homepage": "https://github.com/Kalina0502/client-portal-project#readme",
+  "description": "",
+  "dependencies": {
+    "@floating-ui/dom": "^1.6.13"
+  }
+}
