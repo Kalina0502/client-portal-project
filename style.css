@@ -214,22 +214,25 @@ header {
 
 
 /* top-answer оцветяване */
-.top-answer-green {
-    background-color: #d4edda; /* зелено */
+.top-answer-cell.top-answer-green {
+    background-color: #d4edda;
+    /* зелено */
     border-radius: 8px;
-    padding: 5px;
+    padding: 10px;
 }
 
-.top-answer-orange {
-    background-color: #ffe5b4; /* оранжево */
+.top-answer-cell.top-answer-orange {
+    background-color: #ffe5b4;
+    /* оранжево */
     border-radius: 8px;
-    padding: 5px;
+    padding: 10px;
 }
 
-.top-answer-red {
-    background-color: #f8d7da; /* червено */
+.top-answer-cell.top-answer-red {
+    background-color: #f8d7da;
+    /* червено */
     border-radius: 8px;
-    padding: 5px;
+    padding: 10px;
 }
 
 
