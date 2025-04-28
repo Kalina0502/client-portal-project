@@ -285,6 +285,28 @@ header {
 
 
 /*2-ра таблица*/
+.sub-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.sub-table th:first-child {
+    border-top-left-radius: 8px;
+}
+
+.sub-table th:last-child {
+    border-top-right-radius: 8px;
+}
+
+.sub-table th,
+.sub-table td {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .sub-table thead th {
     background-color: #e2e0e0;
     color: rgb(8, 7, 7);
