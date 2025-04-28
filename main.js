@@ -11,57 +11,53 @@ function loadTab(filename) {
 
       currentTab = filename.includes('reporting') ? 'reporting' : 'dashboard';
 
-      // Активен бутон
+      // Активира бутоните
       const buttons = document.querySelectorAll('.sidebar button');
       buttons.forEach(btn => btn.classList.remove('active'));
       if (filename === 'dashboard.html') buttons[0].classList.add('active');
       if (filename === 'reporting.html') buttons[1].classList.add('active');
 
-      setTimeout(() => {
-        fetch('data.json')
-          .then(res => res.json())
-          .then(data => {
-            jsonData = data.data[0];
-            populateClientFilter(jsonData);
+      fetch('data.json')
+        .then(res => res.json())
+        .then(data => {
+          jsonData = data.data[0];
+          populateClientFilter(jsonData);
 
-            // Dashboard таб
-            if (filename === 'dashboard.html') {
-              const contentBox = document.getElementById('dashboard-content');
-              const warning = document.getElementById('select-warning');
+          if (currentTab === 'dashboard') {
+            const contentBox = document.getElementById('dashboard-content');
+            const warning = document.getElementById('select-warning');
 
-              if (selectedClient) {
-                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
-                if (contentBox) contentBox.style.display = 'block';
-                if (warning) warning.style.display = 'none';
+            if (selectedClient && selectedClient !== 'Client Filter') {
+              const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
+              if (contentBox) contentBox.style.display = 'block';
+              if (warning) warning.style.display = 'none';
 
-                renderDashboardTable(filtered);
-                renderAllQuestionsChart(filtered);
-                renderTop3Chart(filtered);
-                renderBottom3Chart(filtered);
-              } else {
-                if (contentBox) contentBox.style.display = 'none';
-                if (warning) warning.style.display = 'block';
-              }
+              renderDashboardTable(filtered);
+              renderAllQuestionsChart(filtered);
+              renderTop3Chart(filtered);
+              renderBottom3Chart(filtered);
+            } else {
+              if (contentBox) contentBox.style.display = 'none';
+              if (warning) warning.style.display = 'block';
             }
+          }
 
-            // Reporting таб
-            if (filename === 'reporting.html') {
-              const table = document.getElementById('reporting-table');
-              const warning = document.getElementById('select-warning-reporting');
+          if (currentTab === 'reporting') {
+            const table = document.getElementById('reporting-table');
+            const warning = document.getElementById('select-warning-reporting');
 
-              if (selectedClient) {
-                const filtered = jsonData.filter(d => d.Col006 === selectedClient);
-                if (table) table.style.display = 'block';
-                if (warning) warning.style.display = 'none';
+            if (selectedClient && selectedClient !== 'Client Filter') {
+              const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
+              if (table) table.style.display = 'block';
+              if (warning) warning.style.display = 'none';
 
-                renderReportingTable(filtered);
-              } else {
-                if (table) table.style.display = 'none';
-                if (warning) warning.style.display = 'block';
-              }
+              renderReportingTable(filtered);
+            } else {
+              if (table) table.style.display = 'none';
+              if (warning) warning.style.display = 'block';
             }
-          });
-      }, 100);
+          }
+        });
     });
 }
 
@@ -90,19 +86,26 @@ function populateClientFilter(data) {
 
   const clients = [...new Set(data.map(d => d.Col006))];
 
+  //All Clients
+  const allOption = document.createElement('option');
+  allOption.value = 'all';
+  allOption.textContent = 'All Clients';
+  select.appendChild(allOption);
+  
   clients.forEach(client => {
     const option = document.createElement('option');
     option.value = client;
     option.textContent = client;
     select.appendChild(option);
   });
-
+  
   select.dataset.loaded = "true";
 
   select.addEventListener('change', () => {
     const client = select.value;
     selectedClient = client;
-    const filtered = data.filter(d => d.Col006 === client);
+    const filtered = client === 'all' ? data : data.filter(d => d.Col006 === client);
+
 
     if (currentTab === 'dashboard') {
       const contentBox = document.getElementById('dashboard-content');
