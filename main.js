@@ -417,10 +417,18 @@ function renderReportingTable(data) {
       .sort((a, b) => b[1] - a[1])[0];
 
     const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
+    // Определяне на класа само за топ отговор
+    let colorClass = '';
+    if (topAnswerPercentage > 90) {
+      colorClass = 'top-answer-green';
+    } else if (topAnswerPercentage >= 50 && topAnswerPercentage <= 90) {
+      colorClass = 'top-answer-orange';
+    } else {
+      colorClass = 'top-answer-red';
+    }
 
-    // топ отговор с процент
     const topAnswerHtml = `
-<div class="top-answer-cell">
+<div class="top-answer-cell ${colorClass}">
   <div class="top-answer-text">${topAnswerText}</div>
   <div class="top-answer-percent">${topAnswerPercentage}%</div>
 </div>

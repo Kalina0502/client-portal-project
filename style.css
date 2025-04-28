@@ -212,6 +212,27 @@ header {
     border-bottom: 1px solid #e5e5e5;
 }
 
+
+/* top-answer оцветяване */
+.top-answer-green {
+    background-color: #d4edda; /* зелено */
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.top-answer-orange {
+    background-color: #ffe5b4; /* оранжево */
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.top-answer-red {
+    background-color: #f8d7da; /* червено */
+    border-radius: 8px;
+    padding: 5px;
+}
+
+
 /*2-ра таблица*/
 .sub-table thead th {
     background-color: #e2e0e0;
