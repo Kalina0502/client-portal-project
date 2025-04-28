@@ -24,7 +24,7 @@ function loadTab(filename) {
             jsonData = data.data[0];
             populateClientFilter(jsonData);
 
-            // --- Dashboard таб
+            // Dashboard таб
             if (filename === 'dashboard.html') {
               const contentBox = document.getElementById('dashboard-content');
               const warning = document.getElementById('select-warning');
@@ -44,7 +44,7 @@ function loadTab(filename) {
               }
             }
 
-            // --- Reporting таб
+            // Reporting таб
             if (filename === 'reporting.html') {
               const table = document.getElementById('reporting-table');
               const warning = document.getElementById('select-warning-reporting');
@@ -65,20 +65,10 @@ function loadTab(filename) {
     });
 }
 
-
-
-
-
-// Зареждаме Dashboard таб по подразбиране при стартиране
+// Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
 
-
-  // document.getElementById('dashboard-content').style.display = 'block';
-  // document.getElementById('select-warning').style.display = 'none';
-
-
-  // изчакваме малко, за да е зареден tab-a
   setTimeout(() => {
     fetch('data.json')
       .then(res => res.json())
@@ -89,12 +79,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 300);
 });
 
-
-
-
-
-
-
 //DASHBOARD
 let jsonData = []; // ще държи всички данни
 let currentClientData = []; // филтрирани данни според избрания клиент
@@ -102,7 +86,6 @@ let currentClientData = []; // филтрирани данни според из
 function populateClientFilter(data) {
   const select = document.getElementById('clientFilter');
 
-  // Ако вече има клиенти заредени – прекрати
   if (select.dataset.loaded === "true") return;
 
   const clients = [...new Set(data.map(d => d.Col006))];
@@ -143,15 +126,13 @@ function populateClientFilter(data) {
       renderReportingTable(filtered);
     }
 
-
   });
 }
 
 
-
 function renderDashboardTable(data) {
   const tableBody = document.getElementById('dashboard-table-body');
-  tableBody.innerHTML = ''; // чистим преди попълване
+  tableBody.innerHTML = ''; // чистене преди попълване
 
   // групиране по въпрос
   const grouped = {};
@@ -195,8 +176,6 @@ function renderDashboardTable(data) {
     tableBody.appendChild(row);
   });
 }
-
-
 
 
 //CHART 1
@@ -406,11 +385,6 @@ function renderBottom3Chart(data) {
   });
 }
 
-
-
-
-
-
 //REPORTING
 function renderReportingTable(data) {
   const tableBody = document.getElementById('reporting-table-body');
@@ -444,14 +418,13 @@ function renderReportingTable(data) {
 
     const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
 
-    // топ отговор с процент на нов ред
+    // топ отговор с процент
     const topAnswerHtml = `
 <div class="top-answer-cell">
   <div class="top-answer-text">${topAnswerText}</div>
   <div class="top-answer-percent">${topAnswerPercentage}%</div>
 </div>
 `;
-
 
     const questionTd = document.createElement('td');
     questionTd.innerText = question;
@@ -465,7 +438,6 @@ function renderReportingTable(data) {
   <span class="response-count">${info.total}</span>
   <span class="arrow-icon">▼</span>
 `;
-
 
     const arrowIcon = totalTd.querySelector('.arrow-icon');
 
@@ -519,25 +491,6 @@ function renderReportingTable(data) {
     tableBody.appendChild(subRow);
   });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Зарежда footer-a автоматично
 fetch('footer.html')
