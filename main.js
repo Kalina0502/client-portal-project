@@ -1,5 +1,5 @@
 
-let selectedClient = null; // ще пазим текущо избрания клиент
+let selectedClient = null;
 let currentTab = 'dashboard';
 
 

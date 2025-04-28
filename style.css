@@ -8,11 +8,11 @@
 /*SELECT NAME MESSAGE*/
 #select-warning,
 .select-warning {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 18px;
-  color: #333030;
-  font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #333030;
+    font-weight: bold;
 }
 
 
@@ -186,11 +186,9 @@ header {
 
 
 /* REPORTING */
-
-/* Главна таблица – заглавия */
 .main-report-table thead th {
-    background-color: #979696; 
-    color:  white;              
+    background-color: #979696;
+    color: white;
     font-weight: bold;
     padding: 12px;
     text-align: center;
@@ -216,7 +214,7 @@ header {
 
 /*2-ра таблица*/
 .sub-table thead th {
-    background-color: #e2e0e0; 
+    background-color: #e2e0e0;
     color: rgb(8, 7, 7);
     font-weight: bold;
     padding: 10px;
