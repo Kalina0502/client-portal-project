@@ -1,11 +1,12 @@
 
 let selectedClient = null;
-let currentTab = 'dashboard';
-
+let currentTab = null;
 
 function loadTab(filename) {
-  if ((currentTab === 'dashboard' && filename.includes('dashboard')) ||
-    (currentTab === 'reporting' && filename.includes('reporting'))) {
+  const targetTab = filename.includes('reporting') ? 'reporting' : 'dashboard';
+  const contentArea = document.getElementById('content-area');
+
+  if (currentTab === targetTab && contentArea && contentArea.innerHTML.trim() !== '') {
     return;
   }
   fetch(filename)
@@ -13,7 +14,7 @@ function loadTab(filename) {
     .then(html => {
       document.getElementById('content-area').innerHTML = html;
 
-      currentTab = filename.includes('reporting') ? 'reporting' : 'dashboard';
+      currentTab = targetTab;
 
       // Активира бутоните
       const buttons = document.querySelectorAll('.sidebar button');
