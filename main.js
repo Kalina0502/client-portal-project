@@ -4,6 +4,10 @@ let currentTab = 'dashboard';
 
 
 function loadTab(filename) {
+  if ((currentTab === 'dashboard' && filename.includes('dashboard')) ||
+    (currentTab === 'reporting' && filename.includes('reporting'))) {
+    return;
+  }
   fetch(filename)
     .then(res => res.text())
     .then(html => {
@@ -91,14 +95,14 @@ function populateClientFilter(data) {
   allOption.value = 'all';
   allOption.textContent = 'All Clients';
   select.appendChild(allOption);
-  
+
   clients.forEach(client => {
     const option = document.createElement('option');
     option.value = client;
     option.textContent = client;
     select.appendChild(option);
   });
-  
+
   select.dataset.loaded = "true";
 
   select.addEventListener('change', () => {
