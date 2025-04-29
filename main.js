@@ -443,7 +443,6 @@ function renderReportingTable(data) {
   </div>
 `;
 
-
     const questionTd = document.createElement('td');
     questionTd.innerText = question;
 
@@ -463,7 +462,6 @@ function renderReportingTable(data) {
     tr.appendChild(topAnswerTd);
     tr.appendChild(totalTd);
 
-    // Добавяне на подред
     const subRow = document.createElement('tr');
     const subCell = document.createElement('td');
     subCell.colSpan = 4;
@@ -483,14 +481,13 @@ function renderReportingTable(data) {
         </tr>
       </thead>
      <tbody>
-  ${
-    Object.entries(info.answers)
-      .sort((a, b) => b[1] - a[1])
-      .map(([answer, count], idx) => {
-        const percent = ((count / info.total) * 100).toFixed(2);
-        const isTop = idx === 0 && count > 0;
+  ${Object.entries(info.answers)
+        .sort((a, b) => b[1] - a[1])
+        .map(([answer, count], idx) => {
+          const percent = ((count / info.total) * 100).toFixed(2);
+          const isTop = idx === 0 && count > 0;
 
-        return `
+          return `
           <tr>
             <td class="left-align">
               ${answer}
@@ -510,22 +507,18 @@ function renderReportingTable(data) {
             <td class="right-align">${count}</td>
           </tr>
         `;
-      }).join('')
-  }
+        }).join('')
+      }
 </tbody>
-
-
     `;
 
     subCell.appendChild(subTable);
     subRow.appendChild(subCell);
 
-    // Закачи popper към вътрешната иконка
     const innerIcon = subCell.querySelector('.top-icon-wrapper');
     if (innerIcon) {
-      attachFloatingUI(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
+      attachPopperJS(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
     }
-    
 
     tr.addEventListener('click', () => {
       const isVisible = subCell.style.display === 'table-cell';
@@ -535,16 +528,58 @@ function renderReportingTable(data) {
 
     tableBody.appendChild(tr);
     tableBody.appendChild(subRow);
-
-    // ⚡ Добавяме attachFloatingUI на иконката ⭐
-    const icon = topAnswerTd.querySelector('.top-icon');
-    if (icon) {
-      attachFloatingUI(icon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
-    }
   });
 }
 
 window.loadTab = loadTab;
+
+
+function attachPopperJS(targetElement, contentText) {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'popper-tooltip';
+  tooltip.textContent = contentText;
+
+  Object.assign(tooltip.style, {
+    backgroundColor: '#333',
+    color: '#fff',
+    padding: '5px 8px',
+    borderRadius: '4px',
+    fontSize: '12px',
+    zIndex: 1000,
+    display: 'none',
+    position: 'absolute'
+  });
+
+  document.body.appendChild(tooltip);
+
+  let popperInstance = null;
+
+  function show() {
+    tooltip.style.display = 'block';
+    popperInstance = Popper.createPopper(targetElement, tooltip, {
+      placement: 'top',
+      modifiers: [
+        {
+          name: 'offset',
+          options: { offset: [0, 8] }
+        }
+      ]
+    });
+  }
+
+  function hide() {
+    tooltip.style.display = 'none';
+    if (popperInstance) {
+      popperInstance.destroy();
+      popperInstance = null;
+    }
+  }
+
+  targetElement.addEventListener('mouseenter', show);
+  targetElement.addEventListener('mouseleave', hide);
+}
+
+
 
 
 // Зарежда footer-a автоматично
