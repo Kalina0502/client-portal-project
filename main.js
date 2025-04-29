@@ -482,25 +482,38 @@ function renderReportingTable(data) {
           <th class="right-align">Count</th>
         </tr>
       </thead>
-      <tbody>
-  ${Object.entries(info.answers)
-        .sort((a, b) => b[1] - a[1]) // сортираме, за да знаем топ
-        .map(([answer, count], idx, arr) => {
-          const percent = ((count / info.total) * 100).toFixed(2);
-          const isTop = idx === 0 && count > 0;
+     <tbody>
+  ${
+    Object.entries(info.answers)
+      .sort((a, b) => b[1] - a[1])
+      .map(([answer, count], idx) => {
+        const percent = ((count / info.total) * 100).toFixed(2);
+        const isTop = idx === 0 && count > 0;
 
-          return `
+        return `
           <tr>
             <td class="left-align">
-              ${answer} ${isTop ? '<span class="top-icon" style="margin-left: 6px; cursor: pointer;">⭐</span>' : ''}
+              ${answer}
+              ${isTop ? `
+                <span class="top-icon-wrapper" style="margin-left:6px; vertical-align:middle; cursor:pointer;">
+                  <svg height="46px" width="28px">
+                    <polygon style="fill: #50555B" fill-opacity="1" points="0,0 0,46 8,37 16,46 16,0"></polygon>
+                    <polygon style="fill: #3c4044" fill-opacity="1" points="16,0 16,6 20,6"></polygon>
+                    <text fill="white" y="12" x="5.5" style="font-family: Arial; font-weight: bold; font-size: 9px;">T</text>
+                    <text fill="white" y="22" x="4.5" style="font-family: Arial; font-weight: bold; font-size: 9px;">O</text>
+                    <text fill="white" y="32" x="5" style="font-family: Arial; font-weight: bold; font-size: 9px;">P</text>
+                  </svg>
+                </span>
+              ` : ''}
             </td>
             <td class="right-align">${percent}%</td>
             <td class="right-align">${count}</td>
           </tr>
         `;
-        }).join('')
-      }
+      }).join('')
+  }
 </tbody>
+
 
     `;
 
@@ -508,11 +521,11 @@ function renderReportingTable(data) {
     subRow.appendChild(subCell);
 
     // Закачи popper към вътрешната иконка
-    const innerIcon = subCell.querySelector('.top-icon');
+    const innerIcon = subCell.querySelector('.top-icon-wrapper');
     if (innerIcon) {
       attachFloatingUI(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
     }
-
+    
 
     tr.addEventListener('click', () => {
       const isVisible = subCell.style.display === 'table-cell';
