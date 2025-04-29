@@ -512,7 +512,10 @@ function renderReportingTable(data) {
 </tbody>
     `;
 
-    subCell.appendChild(subTable);
+    const subContentWrapper = document.createElement('div');
+    subContentWrapper.classList.add('sub-content-wrapper');
+    subContentWrapper.appendChild(subTable);
+    subCell.appendChild(subContentWrapper);
     subRow.appendChild(subCell);
 
     const innerIcon = subCell.querySelector('.top-icon-wrapper');
@@ -521,17 +524,31 @@ function renderReportingTable(data) {
     }
 
     tr.addEventListener('click', () => {
-      const isVisible = subCell.style.display === 'table-cell';
-      subCell.style.display = isVisible ? 'none' : 'table-cell';
-      arrowIcon.textContent = isVisible ? '▼' : '▲';
+      const contentWrapper = subCell.querySelector('.sub-content-wrapper');
+    
+      // Ако е скрито – отваряме
+      if (subCell.style.display === 'none' || subCell.style.display === '') {
+        subCell.style.display = 'table-cell';
+        const fullHeight = contentWrapper.scrollHeight;
+        contentWrapper.style.height = fullHeight + 'px';
+        arrowIcon.textContent = '▲';
+      } 
+      else {
+        contentWrapper.style.height = '0px';
+        arrowIcon.textContent = '▼';
+    
+        // След края на анимацията скриваме и самия subCell
+        contentWrapper.addEventListener('transitionend', function hideSubCell() {
+          subCell.style.display = 'none';
+          contentWrapper.removeEventListener('transitionend', hideSubCell);
+        });
+      }
     });
 
     tableBody.appendChild(tr);
     tableBody.appendChild(subRow);
   });
 }
-
-window.loadTab = loadTab;
 
 
 function attachPopperJS(targetElement, contentText) {
