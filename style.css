@@ -236,11 +236,15 @@ header {
 }
 
 .main-report-table thead th {
-    background-color: #979696;
-    color: white;
+    position: sticky;
+    top: 0;
+    background-color: #c9c8c8;
+    z-index: 20;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.1);
+    color: #000;
     font-weight: bold;
-    padding: 12px;
-    text-align: center;
+    padding: 15px 12px;
+    font-size: 17px;
 }
 
 /* Главна таблица – редове */
@@ -264,21 +268,18 @@ header {
 /* top-answer оцветяване */
 .top-answer-cell.top-answer-green {
     background-color: #d4edda;
-    /* зелено */
     border-radius: 8px;
     padding: 10px;
 }
 
 .top-answer-cell.top-answer-orange {
     background-color: #ffe5b4;
-    /* оранжево */
     border-radius: 8px;
     padding: 10px;
 }
 
 .top-answer-cell.top-answer-red {
     background-color: #f8d7da;
-    /* червено */
     border-radius: 8px;
     padding: 10px;
 }
@@ -329,6 +330,7 @@ header {
     font-weight: bold;
     padding: 10px;
     text-align: left;
+    z-index: 10;
 }
 
 /* Съдържание на вътрешната таблица */
@@ -387,15 +389,11 @@ header {
     font-weight: normal;
 }
 
-
-
-
-
 /*FOOTER*/
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #f8f8f8;
+    /* background-color: #bd5151;*/
     font-size: 14px;
     color: #555;
     border-top: 1px solid #ccc;
