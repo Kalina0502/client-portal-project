@@ -1,0 +1,1664 @@
+{
+    "data": [
+      [
+        {
+          "Col001": 1006,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Are employees aware of the procedures to retire or decommission old computer equipment  and remove it from Property Control (by completion of Property Control Form 10)?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1006,
+          "Col002": "No",
+          "Col003": 2,
+		  "Col004": -1001,
+		  "Col005": "Are employees aware of the procedures to retire or decommission old computer equipment  and remove it from Property Control (by completion of Property Control Form 10)?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1006,
+          "Col002": "Yes",
+          "Col003": 88,
+		  "Col004": -1001,
+		  "Col005": "Are employees aware of the procedures to retire or decommission old computer equipment  and remove it from Property Control (by completion of Property Control Form 10)?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1007,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "The department staff has read and understands the University's Computer Use Policy, and  the computer use policies in the applicable Faculty Handbook or Employee Handbook.",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1007,
+          "Col002": "No",
+          "Col003": 3,
+		  "Col004": -1001,
+		  "Col005": "The department staff has read and understands the University's Computer Use Policy, and  the computer use policies in the applicable Faculty Handbook or Employee Handbook.",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1007,
+          "Col002": "Yes",
+          "Col003": 87,
+		  "Col004": -1001,
+		  "Col005": "The department staff has read and understands the University's Computer Use Policy, and  the computer use policies in the applicable Faculty Handbook or Employee Handbook.",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1008,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Is job performance periodically evaluated and reviewed with each employee, at least  annually?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1008,
+          "Col002": "No",
+          "Col003": 8,
+		  "Col004": -1001,
+		  "Col005": "Is job performance periodically evaluated and reviewed with each employee, at least  annually?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1008,
+          "Col002": "Yes",
+          "Col003": 82,
+		  "Col004": -1001,
+		  "Col005": "Is job performance periodically evaluated and reviewed with each employee, at least  annually?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1009,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Are the written job descriptions and reference manuals updated at least annually?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1009,
+          "Col002": "No",
+          "Col003": 12,
+		  "Col004": -1002,
+		  "Col005": "Are the written job descriptions and reference manuals updated at least annually?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1009,
+          "Col002": "Yes",
+          "Col003": 78,
+		  "Col004": -1002,
+		  "Col005": "Are the written job descriptions and reference manuals updated at least annually?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1010,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Are there written job descriptions, reference manuals or other forms of communication to  inform personnel of their duties?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1010,
+          "Col002": "No",
+          "Col003": 8,
+		  "Col004": -1002,
+		  "Col005": "Are there written job descriptions, reference manuals or other forms of communication to  inform personnel of their duties?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1010,
+          "Col002": "Yes",
+          "Col003": 82,
+		  "Col004": -1002,
+		  "Col005": "Are there written job descriptions, reference manuals or other forms of communication to  inform personnel of their duties?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1011,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Are all copies of software used by the department appropriately licensed?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1011,
+          "Col002": "No",
+          "Col003": 18,
+		  "Col004": -1002,
+		  "Col005": "Are all copies of software used by the department appropriately licensed?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1011,
+          "Col002": "Yes",
+          "Col003": 72,
+		  "Col004": -1002,
+		  "Col005": "Are all copies of software used by the department appropriately licensed?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1012,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Are university approved virus protection programs used and updated on a daily basis?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1012,
+          "Col002": "No",
+          "Col003": 8,
+		  "Col004": -1002,
+		  "Col005": "Are university approved virus protection programs used and updated on a daily basis?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1012,
+          "Col002": "Yes",
+          "Col003": 82,
+		  "Col004": -1002,
+		  "Col005": "Are university approved virus protection programs used and updated on a daily basis?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1013,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are user id's and passwords required?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1013,
+          "Col002": "No",
+          "Col003": 10,
+		  "Col004": -1003,
+		  "Col005": "Are user id's and passwords required?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1013,
+          "Col002": "Yes",
+          "Col003": 20,
+		  "Col004": -1003,
+		  "Col005": "Are user id's and passwords required?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1014,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department's computer equipment secured to prevent theft?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1014,
+          "Col002": "No",
+          "Col003": 10,
+		  "Col004": -1003,
+		  "Col005": "Is the department's computer equipment secured to prevent theft?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1014,
+          "Col002": "Yes",
+          "Col003": 20,
+		  "Col004": -1003,
+		  "Col005": "Is the department's computer equipment secured to prevent theft?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1015,
+          "Col002": "N/A",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is equipment kept in secured areas?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1015,
+          "Col002": "No",
+          "Col003": 10,
+		  "Col004": -1003,
+		  "Col005": "Is equipment kept in secured areas?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1015,
+          "Col002": "Yes",
+          "Col003": 20,
+		  "Col004": -1003,
+		  "Col005": "Is equipment kept in secured areas?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "0",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "10",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "5",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "6",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "7",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "8",
+          "Col003": 1,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1803,
+          "Col002": "9",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Is the department complying with all applicable sections of the University's Payment Card  Industry Compliance Policy and Procedures?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1813,
+          "Col002": "Answer 1",
+          "Col003": 1,
+		  "Col004": -1003,
+		  "Col005": "Are employees aware of the policies and procedures for reimbursement of university business  related travel expenses?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1813,
+          "Col002": "Answer 2",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are employees aware of the policies and procedures for reimbursement of university business  related travel expenses?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1814,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Are there procedures in place to prevent or detect duplicate payments to vendors, or payment  for goods not received?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1814,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Are there procedures in place to prevent or detect duplicate payments to vendors, or payment  for goods not received?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1814,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Are there procedures in place to prevent or detect duplicate payments to vendors, or payment  for goods not received?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1814,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Are there procedures in place to prevent or detect duplicate payments to vendors, or payment  for goods not received?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1814,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1004,
+		  "Col005": "Are there procedures in place to prevent or detect duplicate payments to vendors, or payment  for goods not received?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1816,
+          "Col002": "Answer 1",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Does the department comply with the University policy that purchases cannot be split to avoid  the Limited Purchase Order limits or the need for bidding?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1816,
+          "Col002": "Answer 2",
+          "Col003": 1,
+		  "Col004": -1004,
+		  "Col005": "Does the department comply with the University policy that purchases cannot be split to avoid  the Limited Purchase Order limits or the need for bidding?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1816,
+          "Col002": "Answer 3",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Does the department comply with the University policy that purchases cannot be split to avoid  the Limited Purchase Order limits or the need for bidding?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 1",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 2",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 3",
+          "Col003": 1,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 4",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 5",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 6",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 7",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 8",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1817,
+          "Col002": "Answer 9",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "How would you rate our service?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1818,
+          "Col002": "Answer 1",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Is the Petty Cash Fund reconciled regularly?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1818,
+          "Col002": "Answer 2",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Is the Petty Cash Fund reconciled regularly?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1818,
+          "Col002": "Answer 3",
+          "Col003": 1,
+		  "Col004": -1001,
+		  "Col005": "Is the Petty Cash Fund reconciled regularly?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1828,
+          "Col002": "Answer 1",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Are petty cash funds locked in a secure area?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1828,
+          "Col002": "Answer 2",
+          "Col003": 1,
+		  "Col004": -1001,
+		  "Col005": "Are petty cash funds locked in a secure area?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1830,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Were you offered to participate in a Loyalty program?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1830,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Were you offered to participate in a Loyalty program?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1830,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Were you offered to participate in a Loyalty program?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1830,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Were you offered to participate in a Loyalty program?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1830,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1001,
+		  "Col005": "Were you offered to participate in a Loyalty program?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1832,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were you offered additional products?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1832,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were you offered additional products?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1832,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were you offered additional products?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1832,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were you offered additional products?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1832,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1002,
+		  "Col005": "Were you offered additional products?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1834,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Friendly and Constructive Attitude",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1834,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Friendly and Constructive Attitude",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1834,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Friendly and Constructive Attitude",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1834,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Friendly and Constructive Attitude",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1834,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1002,
+		  "Col005": "Friendly and Constructive Attitude",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Bland food",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Few vegan options",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Flavorless drinks",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "High prices",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Inconsistent quality",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Limited drinks",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Overcooked food",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Poor presentation",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Small portions",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1839,
+          "Col002": "Unfresh ingredients",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Would you visit again and recommend this store to a friend?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1840,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are the individuals who handle money trained in procedures to be followed in the event of a  robbery or fire?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1840,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are the individuals who handle money trained in procedures to be followed in the event of a  robbery or fire?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1840,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are the individuals who handle money trained in procedures to be followed in the event of a  robbery or fire?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1840,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1003,
+		  "Col005": "Are the individuals who handle money trained in procedures to be followed in the event of a  robbery or fire?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1840,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1003,
+		  "Col005": "Are the individuals who handle money trained in procedures to be followed in the event of a  robbery or fire?",
+		  "Col006": "Lilian"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Difficult reservations",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Impersonal service",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Inattentive staff",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Incorrect orders",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "No special accommodations",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Poor communication",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Poor complaint handling",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Rude behavior",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Slow service",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1841,
+          "Col002": "Uninformed about menu",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "What did not meet your expectation regarding VENUE LOCATION AND ACCESSIBILITY?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Faulty card machines",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Hidden charges",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Incorrect billing",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Limited card acceptance",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "No digital payments",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "No split bills",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "No tipping option",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Slow processing",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Unclear receipts",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1846,
+          "Col002": "Unfriendly staff",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Is a record of over/shortages by cashier maintained?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1849,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1849,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1849,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1849,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1849,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Delayed drink service",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Delayed food service",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Delayed reservations",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Late bill presentation",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Long wait for table",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Slow clean-up",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Slow complaint response",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Slow order corrections",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Slow ordering",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1850,
+          "Col002": "Slow payment processing",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Is only one cashier working from each drawer?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1851,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "How would you rate the buying experience?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1851,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "How would you rate the buying experience?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1851,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "How would you rate the buying experience?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1851,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "How would you rate the buying experience?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1851,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1001,
+		  "Col005": "How would you rate the buying experience?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Delayed replacements",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Ignored complaints",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "No apology",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "No compensation",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "No responsibility taken",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Poor error communication",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Repeated mistakes",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Rude response",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Slow error response",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1852,
+          "Col002": "Unfixed errors",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "What did not meet your expectation regarding SPECIAL OFFERS?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1860,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered the $4.00 Oil Change special?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1860,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered the $4.00 Oil Change special?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1860,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered the $4.00 Oil Change special?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1860,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered the $4.00 Oil Change special?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1860,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1004,
+		  "Col005": "Were you offered the $4.00 Oil Change special?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1865,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered any additional items?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1865,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered any additional items?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1865,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered any additional items?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1865,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered any additional items?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1865,
+          "Col002": "5",
+          "Col003": 1,
+		  "Col004": -1004,
+		  "Col005": "Were you offered any additional items?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Lack of privacy",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Limited food options",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Noisy ambiance",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Parking issues",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Poor lighting",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Slow Wi-Fi",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Unappealing decor",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Unclean venue",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Unclear pricing",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1868,
+          "Col002": "Uncomfortable seating",
+          "Col003": 0,
+		  "Col004": -1004,
+		  "Col005": "Were you offered a SMART CARD application?",
+		  "Col006": "Jill Cosby"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "0",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "1",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "10",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "2",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "3",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "4",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "5",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "6",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "7",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "8",
+          "Col003": 0,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1869,
+          "Col002": "9",
+          "Col003": 1,
+		  "Col004": -1001,
+		  "Col005": "Did the employee offer a friendly greeting?",
+		  "Col006": "Motomery"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Few offers",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Hard to redeem",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Hidden conditions",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Misleading discounts",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "No loyalty program",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "No regular customer deals",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Offers not on favorites",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Poor communication",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Short-term deals",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1875,
+          "Col002": "Uncompetitive deals",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "What did not meet your expectation regarding ORDER ERRORS HANDLING?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Far from public transport",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Hard to find",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Heavy traffic nearby",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Lack of outdoor seating",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Limited parking",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "No disability access",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Not wheelchair/stroller friendly",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Other",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Poor signage",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Unfavorable opening hours",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        },
+        {
+          "Col001": 1876,
+          "Col002": "Unsafe neighborhood",
+          "Col003": 0,
+		  "Col004": -1002,
+		  "Col005": "Were all observed personnel wearing uniform and a nametag?",
+		  "Col006": "Gregory"
+        }
+      ],
+      [
+        {
+          "Heading": "QuestionID",
+          "HeadingGlobalized": "QuestionID"
+        },
+        {
+          "Heading": "ProtoAnswerText",
+          "HeadingGlobalized": "ProtoAnswerText"
+        },
+        {
+          "Heading": "AnswersCount",
+          "HeadingGlobalized": "AnswersCount"
+        },
+        {
+          "Heading": "ClientID",
+          "HeadingGlobalized": "ClientID"
+        },
+        {
+          "Heading": "QuestionText",
+          "HeadingGlobalized": "QuestionText"
+        },
+        {
+          "Heading": "ClientName",
+          "HeadingGlobalized": "ClientName"
+        }
+      ]
+    ]
+}
