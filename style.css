@@ -427,3 +427,150 @@ footer {
     font-size: 13px;
     color: #777;
 }
+
+
+
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode header {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode select,
+body.dark-mode input,
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+/* Theme btn */
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+body.dark-mode th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode td {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+/* Top answers - dark mode*/
+body.dark-mode .top-answer-green {
+    background-color: #276749 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .top-answer-orange {
+    background-color: #9c5619 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .top-answer-red {
+    background-color: #822727 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .sub-table {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode .top-answer-cell .top-answer-text,
+body.dark-mode .top-answer-cell .top-answer-percent {
+    color: #ffffff !important;
+}
+
+body.dark-mode .main-layout table {
+    background-color: transparent;
+}
+
+body.dark-mode .main-report-table {
+    background-color: #1f1f1f;
+    color: #ffffff;
+}
+
+body.dark-mode .main-report-table td {
+    background-color: #2b2b2b;
+    color: #cccccc;
+
+}
+
+body.dark-mode #reporting-table {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #cccccc;
+}
+
+body.dark-mode .sub-table thead th {
+    background-color: #4b4848;
+    color: #cccccc;
+
+}
+
+body.dark-mode .footer-links a {
+    color: #cccccc;
+}
+
+body.dark-mode .footer-copy {
+    color: #cccccc;
+}
+
+body.dark-mode #select-warning,
+body.dark-mode .select-warning {
+    background: transparent;
+    border: none;
+    color: #cccccc;
+    padding: 0;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+body.dark-mode #dashboard-table.data-box {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* Заобляне на таблицата в dashboard и reporting */
+#dashboard-table table,
+.main-report-table {
+    border-radius: 10px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Заобляне на цялата външна кутия */
+#dashboard-table,
+#reporting-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+  

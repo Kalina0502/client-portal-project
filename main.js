@@ -81,8 +81,8 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 //DASHBOARD
-let jsonData = []; // ще държи всички данни
-let currentClientData = []; // филтрирани данни според избрания клиент
+let jsonData = [];
+let currentClientData = []; 
 
 function populateClientFilter(data) {
   const select = document.getElementById('clientFilter');
@@ -133,16 +133,13 @@ function populateClientFilter(data) {
 
       renderReportingTable(filtered);
     }
-
   });
 }
 
-
 function renderDashboardTable(data) {
   const tableBody = document.getElementById('dashboard-table-body');
-  tableBody.innerHTML = ''; // чистене преди попълване
+  tableBody.innerHTML = '';
 
-  // групиране по въпрос
   const grouped = {};
 
   data.forEach(row => {
@@ -167,7 +164,6 @@ function renderDashboardTable(data) {
     grouped[id].total += responses;
   });
 
-  // изграждане на редовете
   Object.entries(grouped).forEach(([id, info]) => {
     const row = document.createElement('tr');
 
@@ -597,6 +593,31 @@ function attachPopperJS(targetElement, contentText) {
 }
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggleBtn = document.getElementById('theme-toggle');
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      // Смяна на иконата
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggleBtn.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        themeToggleBtn.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // При зареждане на страницата - сетва тема
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      themeToggleBtn.textContent = '☀️';
+    }
+  }
+});
 
 
 // Зарежда footer-a автоматично
