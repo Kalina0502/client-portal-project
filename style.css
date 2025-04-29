@@ -285,24 +285,22 @@ header {
 
 
 /*2-ра таблица*/
+.active-row {
+    background-color: #f0f0f0;
+}
+
 .sub-row-content {
     overflow: hidden;
     height: 0;
     transition: height 0.4s ease;
-  }
+}
 
-  
-  .sub-content-wrapper {
+.sub-content-wrapper {
     overflow: hidden;
     height: 0;
     transition: height 0.4s ease;
-  }
+}
 
-  
-
-
-
-  
 .sub-table {
     width: 100%;
     border-collapse: collapse;

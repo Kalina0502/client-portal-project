@@ -525,19 +525,19 @@ function renderReportingTable(data) {
 
     tr.addEventListener('click', () => {
       const contentWrapper = subCell.querySelector('.sub-content-wrapper');
-    
-      // Ако е скрито – отваряме
+
       if (subCell.style.display === 'none' || subCell.style.display === '') {
         subCell.style.display = 'table-cell';
         const fullHeight = contentWrapper.scrollHeight;
         contentWrapper.style.height = fullHeight + 'px';
         arrowIcon.textContent = '▲';
+        tr.classList.add('active-row'); 
       } 
       else {
         contentWrapper.style.height = '0px';
         arrowIcon.textContent = '▼';
-    
-        // След края на анимацията скриваме и самия subCell
+        tr.classList.remove('active-row');
+
         contentWrapper.addEventListener('transitionend', function hideSubCell() {
           subCell.style.display = 'none';
           contentWrapper.removeEventListener('transitionend', hideSubCell);
