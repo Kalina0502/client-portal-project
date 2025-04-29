@@ -1,5 +1,5 @@
 .site-wrapper {
-    max-width: 1520px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0px;
     box-sizing: border-box;
@@ -55,6 +55,7 @@ header {
     flex: 1;
     height: 100%;
     display: flex;
+    width: 100%;
 }
 
 .custom-select {
@@ -99,6 +100,7 @@ header {
     max-width: 95%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     overflow-x: auto;
+    width: 100%;
 }
 
 .data-box table {
@@ -176,6 +178,7 @@ header {
     max-width: 95%;
     min-height: 400px;
     overflow-x: auto;
+    width: 100%;
 }
 
 .highcharts-title {
