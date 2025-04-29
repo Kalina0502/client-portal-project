@@ -426,7 +426,7 @@ function renderReportingTable(data) {
 
     const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
 
-    // Определяне на класа само за топ отговор
+    // Определяне на класа за цвят
     let colorClass = '';
     if (topAnswerPercentage > 90) {
       colorClass = 'top-answer-green';
@@ -437,11 +437,12 @@ function renderReportingTable(data) {
     }
 
     const topAnswerHtml = `
-<div class="top-answer-cell ${colorClass}">
-  <div class="top-answer-text">${topAnswerText}</div>
-  <div class="top-answer-percent">${topAnswerPercentage}%</div>
-</div>
+  <div class="top-answer-cell ${colorClass}">
+    <div class="top-answer-text">${topAnswerText}</div>
+    <div class="top-answer-percent">${topAnswerPercentage}%</div>
+  </div>
 `;
+
 
     const questionTd = document.createElement('td');
     questionTd.innerText = question;
@@ -452,9 +453,9 @@ function renderReportingTable(data) {
     const totalTd = document.createElement('td');
     totalTd.classList.add('responses-cell');
     totalTd.innerHTML = `
-  <span class="response-count">${info.total}</span>
-  <span class="arrow-icon">▼</span>
-`;
+      <span class="response-count">${info.total}</span>
+      <span class="arrow-icon">▼</span>
+    `;
 
     const arrowIcon = totalTd.querySelector('.arrow-icon');
 
@@ -462,7 +463,7 @@ function renderReportingTable(data) {
     tr.appendChild(topAnswerTd);
     tr.appendChild(totalTd);
 
-
+    // Добавяне на подред
     const subRow = document.createElement('tr');
     const subCell = document.createElement('td');
     subCell.colSpan = 4;
@@ -482,21 +483,36 @@ function renderReportingTable(data) {
         </tr>
       </thead>
       <tbody>
-        ${Object.entries(info.answers).map(([answer, count]) => {
-      const percent = ((count / info.total) * 100).toFixed(2);
-      return `
-            <tr>
-              <td class="left-align">${answer}</td>
-              <td class="right-align">${percent}%</td>
-              <td class="right-align">${count}</td>
-            </tr>
-          `;
-    }).join('')}
-      </tbody>
+  ${Object.entries(info.answers)
+        .sort((a, b) => b[1] - a[1]) // сортираме, за да знаем топ
+        .map(([answer, count], idx, arr) => {
+          const percent = ((count / info.total) * 100).toFixed(2);
+          const isTop = idx === 0 && count > 0;
+
+          return `
+          <tr>
+            <td class="left-align">
+              ${answer} ${isTop ? '<span class="top-icon" style="margin-left: 6px; cursor: pointer;">⭐</span>' : ''}
+            </td>
+            <td class="right-align">${percent}%</td>
+            <td class="right-align">${count}</td>
+          </tr>
+        `;
+        }).join('')
+      }
+</tbody>
+
     `;
 
     subCell.appendChild(subTable);
     subRow.appendChild(subCell);
+
+    // Закачи popper към вътрешната иконка
+    const innerIcon = subCell.querySelector('.top-icon');
+    if (innerIcon) {
+      attachFloatingUI(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
+    }
+
 
     tr.addEventListener('click', () => {
       const isVisible = subCell.style.display === 'table-cell';
@@ -506,8 +522,17 @@ function renderReportingTable(data) {
 
     tableBody.appendChild(tr);
     tableBody.appendChild(subRow);
+
+    // ⚡ Добавяме attachFloatingUI на иконката ⭐
+    const icon = topAnswerTd.querySelector('.top-icon');
+    if (icon) {
+      attachFloatingUI(icon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
+    }
   });
 }
+
+window.loadTab = loadTab;
+
 
 // Зарежда footer-a автоматично
 fetch('footer.html')

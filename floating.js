@@ -1,7 +1,5 @@
-import { computePosition, offset, flip, shift, autoUpdate } from '@floating-ui/dom';
-
-export function attachFloatingUI(targetSelector, content) {
-  const target = document.querySelector(targetSelector);
+function attachFloatingUI(targetSelector, content) {
+  const target = typeof targetSelector === 'string' ? document.querySelector(targetSelector) : targetSelector;
 
   if (!target) return;
 
@@ -21,20 +19,17 @@ export function attachFloatingUI(targetSelector, content) {
   tooltip.style.whiteSpace = 'nowrap';
   tooltip.style.display = 'none';
 
-  target.addEventListener('mouseenter', () => {
+  target.addEventListener('mouseenter', (e) => {
     tooltip.style.display = 'block';
-
-    autoUpdate(target, tooltip, () => {
-      computePosition(target, tooltip, {
-        middleware: [offset(6), flip(), shift()],
-      }).then(({ x, y }) => {
-        tooltip.style.left = `${x}px`;
-        tooltip.style.top = `${y}px`;
-      });
-    });
+    const rect = target.getBoundingClientRect();
+    tooltip.style.left = rect.left + window.scrollX + "px";
+    tooltip.style.top = rect.top + window.scrollY - tooltip.offsetHeight - 10 + "px"; // малко над елемента
   });
 
   target.addEventListener('mouseleave', () => {
     tooltip.style.display = 'none';
   });
 }
+
+// Правим я глобална
+window.attachFloatingUI = attachFloatingUI;
