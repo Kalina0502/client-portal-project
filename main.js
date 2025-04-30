@@ -218,11 +218,11 @@ function renderAllQuestionsChart(data) {
   Highcharts.chart('all-questions-chart', {
     chart: {
       type: 'bar',
-      backgroundColor: backgroundColor // 👈
+      backgroundColor: backgroundColor 
     },
     title: {
       text: 'All Questions – Answer Distribution',
-      style: { color: textColor } // 👈
+      style: { color: textColor } 
     },
     xAxis: {
       categories: questionTexts,
@@ -261,7 +261,7 @@ function renderAllQuestionsChart(data) {
     },
     legend: {
       reversed: true,
-      itemStyle: { color: textColor } // 👈
+      itemStyle: { color: textColor }
     },
     plotOptions: {
       series: {
