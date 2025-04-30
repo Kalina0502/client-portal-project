@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 //DASHBOARD
 let jsonData = [];
-let currentClientData = []; 
+let currentClientData = [];
 
 function populateClientFilter(data) {
   const select = document.getElementById('clientFilter');
@@ -527,8 +527,8 @@ function renderReportingTable(data) {
         const fullHeight = contentWrapper.scrollHeight;
         contentWrapper.style.height = fullHeight + 'px';
         arrowIcon.textContent = '▲';
-        tr.classList.add('active-row'); 
-      } 
+        tr.classList.add('active-row');
+      }
       else {
         contentWrapper.style.height = '0px';
         arrowIcon.textContent = '▼';
@@ -595,27 +595,12 @@ function attachPopperJS(targetElement, contentText) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
-
+  
   if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
+    themeToggleBtn.addEventListener('change', () => {
       document.body.classList.toggle('dark-mode');
-
-      // Смяна на иконата
-      if (document.body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = '☀️';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        themeToggleBtn.textContent = '🌙';
-        localStorage.setItem('theme', 'light');
-      }
+      localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
     });
-
-    // При зареждане на страницата - сетва тема
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      document.body.classList.add('dark-mode');
-      themeToggleBtn.textContent = '☀️';
-    }
   }
 });
 
