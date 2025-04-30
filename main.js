@@ -32,7 +32,6 @@ function loadTab(filename) {
             const contentBox = document.getElementById('dashboard-content');
             const warning = document.getElementById('select-warning');
 
-
             if (selectedClient && selectedClient !== 'Client Filter') {
               const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
               if (contentBox) contentBox.style.display = 'block';
@@ -42,6 +41,7 @@ function loadTab(filename) {
               renderAllQuestionsChart(filtered);
               renderTop3Chart(filtered);
               renderBottom3Chart(filtered);
+              renderDashboardSummary(filtered);
             } else {
               if (contentBox) contentBox.style.display = 'none';
               if (warning) warning.style.display = 'block';
@@ -80,7 +80,6 @@ window.addEventListener('DOMContentLoaded', () => {
   const introShown = sessionStorage.getItem('introShown');
 
   const blocker = document.getElementById('page-blocker');
-
 
   if (!introShown && intro) {
     setTimeout(() => {
@@ -126,7 +125,6 @@ function populateClientFilter(data) {
     option.textContent = client;
     select.appendChild(option);
   });
-
 
   const savedClient = sessionStorage.getItem('selectedClient');
   if (savedClient) {
