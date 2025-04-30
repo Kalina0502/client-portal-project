@@ -569,6 +569,12 @@ body.dark-mode .select-warning {
     text-align: center;
 }
 
+#dashboard-content {
+    padding: 24px;
+    box-sizing: border-box;
+  }
+
+  
 body.dark-mode #dashboard-table.data-box {
     background-color: transparent !important;
     box-shadow: none !important;
