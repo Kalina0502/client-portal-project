@@ -12,13 +12,12 @@
 <body>
     <div class="site-wrapper">
         <div id="app">
-            <!-- Header -->
             <header>
                 <label class="theme-toggle">
                     <input type="checkbox" id="theme-toggle" />
                     <span class="slider"></span>
-                  </label>
-                  
+                </label>
+
                 <div class="custom-select">
                     <select id="clientFilter">
                         <option selected disabled>Client Filter</option>
@@ -28,7 +27,6 @@
 
 
             <div class="main-layout">
-                <!-- Sidebar menu -->
                 <aside class="sidebar">
                     <button onclick="loadTab('dashboard.html')">Dashboard</button>
                     <button onclick="loadTab('reporting.html')">Reporting</button>
@@ -39,18 +37,15 @@
 
             <a class="back-to-top js-back-to-top" href="#" data-offset="100">
                 <svg class="cd-icon" viewBox="0 0 20 20">
-                  <polyline points="2 13 10 5 18 13" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    <polyline points="2 13 10 5 18 13" fill="none" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2" />
                 </svg>
-              </a>
-              
-            <!--CHART 1-->
+            </a>
+
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-
-
-            <!-- Footer -->
             <footer id="footer-area"></footer>
         </div>
 
