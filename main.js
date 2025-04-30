@@ -184,6 +184,7 @@ function renderDashboardTable(data) {
 
 //CHART 1
 function renderAllQuestionsChart(data) {
+  const { backgroundColor, textColor } = getChartColors();
   const grouped = {};
 
   data.forEach(row => {
@@ -216,24 +217,30 @@ function renderAllQuestionsChart(data) {
 
   Highcharts.chart('all-questions-chart', {
     chart: {
-      type: 'bar'
+      type: 'bar',
+      backgroundColor: backgroundColor // 👈
     },
     title: {
-      text: 'All Questions – Answer Distribution'
+      text: 'All Questions – Answer Distribution',
+      style: { color: textColor } // 👈
     },
     xAxis: {
       categories: questionTexts,
-      title: { text: 'Questions' }
+      title: { text: 'Questions', style: { color: textColor } },
+      labels: { style: { color: textColor } }
     },
     yAxis: {
       min: 0,
-      title: { text: 'Responses' },
+      title: { text: 'Responses', style: { color: textColor } },
       stackLabels: {
-        enabled: true
-      }
+        enabled: true,
+        style: { color: textColor }
+      },
+      labels: { style: { color: textColor } }
     },
     legend: {
-      reversed: true
+      reversed: true,
+      itemStyle: { color: textColor } // 👈
     },
     plotOptions: {
       series: {
@@ -246,6 +253,7 @@ function renderAllQuestionsChart(data) {
 
 //CHART 2
 function renderTop3Chart(data) {
+  const { backgroundColor, textColor } = getChartColors();
   const grouped = {};
 
   // групиране и броене по въпрос и отговор
@@ -288,24 +296,30 @@ function renderTop3Chart(data) {
 
   Highcharts.chart('top-questions-chart', {
     chart: {
-      type: 'bar'
+      type: 'bar',
+      backgroundColor: backgroundColor
     },
     title: {
-      text: 'Top 3 Questions – Answer Distribution'
+      text: 'Top 3 Questions – Answer Distribution',
+      style: { color: textColor }
     },
     xAxis: {
       categories: questionTexts,
-      title: { text: 'Questions' }
+      title: { text: 'Questions', style: { color: textColor } },
+      labels: { style: { color: textColor } }
     },
     yAxis: {
       min: 0,
-      title: { text: 'Responses' },
+      title: { text: 'Responses', style: { color: textColor } },
       stackLabels: {
-        enabled: true
-      }
+        enabled: true,
+        style: { color: textColor }
+      },
+      labels: { style: { color: textColor } }
     },
     legend: {
-      reversed: true
+      reversed: true,
+      itemStyle: { color: textColor }
     },
     plotOptions: {
       series: {
@@ -314,6 +328,7 @@ function renderTop3Chart(data) {
     },
     series: series
   });
+  
 }
 
 
@@ -358,27 +373,37 @@ function renderBottom3Chart(data) {
     name: answer,
     data: bottom3.map(entry => entry[1].answers[answer] || 0)
   }));
-
+  
+  const { backgroundColor, textColor } = getChartColors();
   Highcharts.chart('bottom-questions-chart', {
     chart: {
-      type: 'bar'
+      type: 'bar',
+      backgroundColor: backgroundColor
     },
     title: {
-      text: 'Bottom 3 Questions – Answer Distribution'
+      text: 'Bottom 3 Questions – Answer Distribution',
+      style: {
+        color: textColor,
+        fontWeight: 'bold'
+      }
     },
     xAxis: {
       categories: questionTexts,
-      title: { text: 'Questions' }
+      title: { text: 'Questions', style: { color: textColor } },
+      labels: { style: { color: textColor } }
     },
     yAxis: {
       min: 0,
-      title: { text: 'Responses' },
+      title: { text: 'Responses', style: { color: textColor } },
       stackLabels: {
-        enabled: true
-      }
+        enabled: true,
+        style: { color: textColor }
+      },
+      labels: { style: { color: textColor } }
     },
     legend: {
-      reversed: true
+      reversed: true,
+      itemStyle: { color: textColor }
     },
     plotOptions: {
       series: {
@@ -387,7 +412,28 @@ function renderBottom3Chart(data) {
     },
     series: series
   });
+  
+  
 }
+
+function updateChartsTheme() {
+  if (currentTab === 'dashboard' && selectedClient && selectedClient !== 'Client Filter') {
+    const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
+    renderAllQuestionsChart(filtered);
+    renderTop3Chart(filtered);
+    renderBottom3Chart(filtered);
+  }
+}
+
+
+function getChartColors() {
+  const isDark = document.body.classList.contains('dark-mode');
+  return {
+    backgroundColor: isDark ? '#1e1e1e' : '#ffffff',
+    textColor: isDark ? '#ffffff' : '#000000'
+  };
+}
+
 
 //REPORTING
 function renderReportingTable(data) {
@@ -595,11 +641,12 @@ function attachPopperJS(targetElement, contentText) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
-  
+
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('change', () => {
       document.body.classList.toggle('dark-mode');
       localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+      updateChartsTheme();
     });
   }
 });

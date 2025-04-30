@@ -182,9 +182,9 @@ header {
 }
 
 .highcharts-title {
-    font-size: 18px !important;
-    font-weight: 600 !important;
-    fill: #333 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  fill: currentColor !important;
 }
 
 
@@ -576,6 +576,17 @@ body.dark-mode #dashboard-table.data-box {
     border-radius: 12px;
     overflow: hidden;
 }
+
+.highcharts-container,
+.highcharts-background {
+  background: transparent !important;
+}
+.chart-wrapper {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  
 
 .theme-toggle {
     position: relative;
