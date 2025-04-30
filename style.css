@@ -15,7 +15,6 @@
     font-weight: bold;
 }
 
-
 /*DASHBOARD*/
 body {
     margin: 0;
@@ -90,7 +89,6 @@ header {
     color: #555;
 }
 
-
 /*DASHBOARD DATA TABLE*/
 .data-box {
     background-color: white;
@@ -103,9 +101,16 @@ header {
     width: 100%;
 }
 
-.data-box table {
-    width: 100%;
-    border-collapse: collapse;
+.data-box,
+#reporting-table {
+  overflow-x: auto;
+}
+
+.data-box table,
+.main-report-table {
+  table-layout: auto;
+  width: 100%;
+  min-width: 600px;
 }
 
 .data-box th {
@@ -128,8 +133,6 @@ header {
 .data-box tr:nth-child(even) {
     background-color: #fafafa;
 }
-
-
 
 /*SIDEBAR*/
 .sidebar {
@@ -161,12 +164,10 @@ header {
     color: #000;
 }
 
-
 #content-area {
     overflow: visible;
     flex: 1;
 }
-
 
 /*CHARTS*/
 .chart-box {
@@ -175,10 +176,11 @@ header {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 95%;
+    max-width: 100%;
     min-height: 400px;
     overflow-x: auto;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .highcharts-title {
@@ -186,7 +188,6 @@ header {
     font-weight: 600 !important;
     fill: currentColor !important;
 }
-
 
 /* REPORTING */
 #reporting-table {
@@ -196,6 +197,7 @@ header {
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow-x: auto;
 }
 
 .main-report-table {
@@ -287,7 +289,6 @@ header {
     padding: 10px;
 }
 
-
 /*2-ра таблица*/
 .active-row {
     background-color: #f0f0f0;
@@ -349,8 +350,6 @@ header {
     background-color: #f9f9f9;
 }
 
-
-
 /* Strelka */
 .reporting-row {
     cursor: pointer;
@@ -371,7 +370,6 @@ header {
     display: inline-block;
     transition: transform 0.2s ease;
 }
-
 
 /*Top answer*/
 .top-answer-cell {
@@ -430,9 +428,6 @@ footer {
     font-size: 13px;
     color: #777;
 }
-
-
-
 
 /* Dark mode */
 body.dark-mode {
@@ -586,14 +581,6 @@ body.dark-mode #dashboard-table.data-box {
     background-color: transparent;
     border: none;
     box-shadow: none;
-}
-
-
-.theme-toggle {
-    position: relative;
-    display: inline-block;
-    width: 50px;
-    height: 28px;
 }
 
 .theme-toggle input {
