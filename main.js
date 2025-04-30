@@ -138,6 +138,7 @@ function populateClientFilter(data) {
 
       renderReportingTable(filtered);
     }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
@@ -842,7 +843,6 @@ function sortReporting(by) {
   const data = getFilteredData();
   const sorted = [...data];
 
-  // ако кликнеш отново върху същата колона – обръщаме посоката
   if (currentSort.column === by) {
     currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
   } else {
