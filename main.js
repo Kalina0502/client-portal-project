@@ -32,11 +32,7 @@ function loadTab(filename) {
             const contentBox = document.getElementById('dashboard-content');
             const warning = document.getElementById('select-warning');
 
-            if (jsonData && selectedClient) {
-              const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
-              renderDashboardSummary(filtered);
-            }
-            
+
             if (selectedClient && selectedClient !== 'Client Filter') {
               const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
               if (contentBox) contentBox.style.display = 'block';
@@ -79,21 +75,32 @@ function loadTab(filename) {
 window.addEventListener('DOMContentLoaded', () => {
   const savedTab = sessionStorage.getItem('currentTab') || 'dashboard';
   loadTab(`${savedTab}.html`);
-  
-  const intro = document.getElementById('intro');
-const introShown = sessionStorage.getItem('introShown');
 
-if (!introShown && intro) {
-  setTimeout(() => {
-    intro.classList.add('animate__fadeOut');
-    intro.addEventListener('animationend', () => {
-      intro.remove();
-    });
-    sessionStorage.setItem('introShown', 'true');
-  }, 2500);
-} else if (intro) {
-  intro.remove();
-}
+  const intro = document.getElementById('intro');
+  const introShown = sessionStorage.getItem('introShown');
+
+  const blocker = document.getElementById('page-blocker');
+
+
+  if (!introShown && intro) {
+    setTimeout(() => {
+      intro.classList.add('animate__fadeOut');
+
+      intro.addEventListener('animationend', () => {
+        intro.remove();
+        blocker.style.opacity = 0;
+
+        setTimeout(() => {
+          blocker.remove();
+        }, 500);
+      });
+
+      sessionStorage.setItem('introShown', 'true');
+    }, 2500);
+  } else {
+    intro?.remove();
+    blocker.remove();
+  }
 
 });
 
@@ -122,34 +129,34 @@ function populateClientFilter(data) {
 
 
   const savedClient = sessionStorage.getItem('selectedClient');
-if (savedClient) {
-  select.value = savedClient;
-  selectedClient = savedClient;
+  if (savedClient) {
+    select.value = savedClient;
+    selectedClient = savedClient;
 
-  const filtered = savedClient === 'all' ? data : data.filter(d => d.Col006 === savedClient);
+    const filtered = savedClient === 'all' ? data : data.filter(d => d.Col006 === savedClient);
 
-  if (currentTab === 'dashboard') {
-    const contentBox = document.getElementById('dashboard-content');
-    const warning = document.getElementById('select-warning');
-    if (contentBox) contentBox.style.display = 'block';
-    if (warning) warning.style.display = 'none';
+    if (currentTab === 'dashboard') {
+      const contentBox = document.getElementById('dashboard-content');
+      const warning = document.getElementById('select-warning');
+      if (contentBox) contentBox.style.display = 'block';
+      if (warning) warning.style.display = 'none';
 
-    renderDashboardTable(filtered);
-    renderAllQuestionsChart(filtered);
-    renderTop3Chart(filtered);
-    renderBottom3Chart(filtered);
+      renderDashboardTable(filtered);
+      renderAllQuestionsChart(filtered);
+      renderTop3Chart(filtered);
+      renderBottom3Chart(filtered);
+    }
+
+    if (currentTab === 'reporting') {
+      const table = document.getElementById('reporting-table');
+      const warning = document.getElementById('select-warning-reporting');
+
+      if (table) table.style.display = 'block';
+      if (warning) warning.style.display = 'none';
+
+      renderReportingTable(filtered);
+    }
   }
-
-  if (currentTab === 'reporting') {
-    const table = document.getElementById('reporting-table');
-    const warning = document.getElementById('select-warning-reporting');
-
-    if (table) table.style.display = 'block';
-    if (warning) warning.style.display = 'none';
-
-    renderReportingTable(filtered);
-  }
-}
 
   select.dataset.loaded = "true";
 
