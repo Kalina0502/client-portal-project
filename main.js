@@ -56,6 +56,10 @@ function loadTab(filename) {
               if (warning) warning.style.display = 'none';
 
               renderReportingTable(filtered);
+
+              document.getElementById('sort-top-answer')?.addEventListener('click', () => sortReporting('top'));
+              document.getElementById('sort-responses')?.addEventListener('click', () => sortReporting('responses'));
+
             } else {
               if (table) table.style.display = 'none';
               if (warning) warning.style.display = 'block';
@@ -218,11 +222,11 @@ function renderAllQuestionsChart(data) {
   Highcharts.chart('all-questions-chart', {
     chart: {
       type: 'bar',
-      backgroundColor: backgroundColor 
+      backgroundColor: backgroundColor
     },
     title: {
       text: 'All Questions – Answer Distribution',
-      style: { color: textColor } 
+      style: { color: textColor }
     },
     xAxis: {
       categories: questionTexts,
@@ -709,6 +713,9 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
       updateChartsTheme();
     });
+
+    document.getElementById('sort-top-answer')?.addEventListener('click', () => sortReporting('top'));
+    document.getElementById('sort-responses')?.addEventListener('click', () => sortReporting('responses'));
   }
 });
 
@@ -796,4 +803,67 @@ fetch('footer.html')
     document.getElementById('footer-area').innerHTML = html;
   });
 
+function getFilteredData() {
+  if (!selectedClient || selectedClient === 'Client Filter') return [];
+  return selectedClient === 'all'
+    ? jsonData
+    : jsonData.filter(d => d.Col006 === selectedClient);
+}
 
+function getTopAnswer(entry) {
+  const question = entry.Col005;
+  const filtered = jsonData.filter(d => d.Col005 === question && (!selectedClient || selectedClient === 'all' || d.Col006 === selectedClient));
+
+  const grouped = {};
+  let total = 0;
+
+  filtered.forEach(row => {
+    const answer = row.Col002;
+    const count = parseInt(row.Col003);
+
+    if (!grouped[answer]) grouped[answer] = 0;
+    grouped[answer] += count;
+    total += count;
+  });
+
+  const [topAnswerText, topAnswerCount] = Object.entries(grouped).sort((a, b) => b[1] - a[1])[0] || ["", 0];
+  const percent = total > 0 ? ((topAnswerCount / total) * 100).toFixed(2) : 0;
+
+  return {
+    text: topAnswerText,
+    count: topAnswerCount,
+    percent: parseFloat(percent)
+  };
+}
+
+let currentSort = { column: null, direction: 'desc' };
+
+function sortReporting(by) {
+  const data = getFilteredData();
+  const sorted = [...data];
+
+  // ако кликнеш отново върху същата колона – обръщаме посоката
+  if (currentSort.column === by) {
+    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+  } else {
+    currentSort.column = by;
+    currentSort.direction = 'desc';
+  }
+
+  const multiplier = currentSort.direction === 'asc' ? 1 : -1;
+
+  sorted.sort((a, b) => {
+    const aTop = getTopAnswer(a);
+    const bTop = getTopAnswer(b);
+
+    if (by === 'top') {
+      return (aTop.percent - bTop.percent) * multiplier;
+    } else if (by === 'responses') {
+      return (aTop.count - bTop.count) * multiplier;
+    }
+
+    return 0;
+  });
+
+  renderReportingTable(sorted);
+}
