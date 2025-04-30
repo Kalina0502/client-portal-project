@@ -1,4 +1,3 @@
-
 let selectedClient = null;
 let currentTab = null;
 
@@ -69,20 +68,10 @@ function loadTab(filename) {
 // Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
-
-  setTimeout(() => {
-    fetch('data.json')
-      .then(res => res.json())
-      .then(data => {
-        jsonData = data.data[0];
-        populateClientFilter(jsonData);
-      });
-  }, 300);
 });
 
 //DASHBOARD
 let jsonData = [];
-let currentClientData = [];
 
 function populateClientFilter(data) {
   const select = document.getElementById('clientFilter');
@@ -181,7 +170,6 @@ function renderDashboardTable(data) {
   });
 }
 
-
 //CHART 1
 function renderAllQuestionsChart(data) {
   const { backgroundColor, textColor } = getChartColors();
@@ -238,6 +226,27 @@ function renderAllQuestionsChart(data) {
       },
       labels: { style: { color: textColor } }
     },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 600
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          },
+          xAxis: {
+            labels: {
+              style: {
+                fontSize: '10px'
+              }
+            }
+          }
+        }
+      }]
+    },
     legend: {
       reversed: true,
       itemStyle: { color: textColor } // 👈
@@ -256,7 +265,6 @@ function renderTop3Chart(data) {
   const { backgroundColor, textColor } = getChartColors();
   const grouped = {};
 
-  // групиране и броене по въпрос и отговор
   data.forEach(row => {
     const qText = row.Col005;
     const answer = row.Col002;
@@ -317,6 +325,27 @@ function renderTop3Chart(data) {
       },
       labels: { style: { color: textColor } }
     },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 600
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          },
+          xAxis: {
+            labels: {
+              style: {
+                fontSize: '10px'
+              }
+            }
+          }
+        }
+      }]
+    },
     legend: {
       reversed: true,
       itemStyle: { color: textColor }
@@ -328,15 +357,12 @@ function renderTop3Chart(data) {
     },
     series: series
   });
-  
 }
-
 
 //CHART 3
 function renderBottom3Chart(data) {
   const grouped = {};
 
-  // групиране и броене по въпрос и отговор
   data.forEach(row => {
     const qText = row.Col005;
     const answer = row.Col002;
@@ -373,7 +399,7 @@ function renderBottom3Chart(data) {
     name: answer,
     data: bottom3.map(entry => entry[1].answers[answer] || 0)
   }));
-  
+
   const { backgroundColor, textColor } = getChartColors();
   Highcharts.chart('bottom-questions-chart', {
     chart: {
@@ -401,6 +427,27 @@ function renderBottom3Chart(data) {
       },
       labels: { style: { color: textColor } }
     },
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 600
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          },
+          xAxis: {
+            labels: {
+              style: {
+                fontSize: '10px'
+              }
+            }
+          }
+        }
+      }]
+    },
     legend: {
       reversed: true,
       itemStyle: { color: textColor }
@@ -412,8 +459,6 @@ function renderBottom3Chart(data) {
     },
     series: series
   });
-  
-  
 }
 
 function updateChartsTheme() {
@@ -425,7 +470,6 @@ function updateChartsTheme() {
   }
 }
 
-
 function getChartColors() {
   const isDark = document.body.classList.contains('dark-mode');
   return {
@@ -434,6 +478,13 @@ function getChartColors() {
   };
 }
 
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
 
 //REPORTING
 function renderReportingTable(data) {
@@ -592,7 +643,6 @@ function renderReportingTable(data) {
   });
 }
 
-
 function attachPopperJS(targetElement, contentText) {
   const tooltip = document.createElement('div');
   tooltip.className = 'popper-tooltip';
@@ -638,7 +688,6 @@ function attachPopperJS(targetElement, contentText) {
   targetElement.addEventListener('mouseleave', hide);
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
 
@@ -651,42 +700,39 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-(function() {
+(function () {
   var backTop = document.getElementsByClassName('js-back-to-top')[0];
-  if( backTop ) {
+  if (backTop) {
     var dataElement = backTop.getAttribute('data-element');
     var scrollElement = dataElement ? document.querySelector(dataElement) : window;
     var scrollOffsetInit = parseInt(backTop.getAttribute('data-offset-in')) || parseInt(backTop.getAttribute('data-offset')) || 0, //show back-to-top if scrolling > scrollOffset
-      scrollOffsetOutInit = parseInt(backTop.getAttribute('data-offset-out')) || 0, 
+      scrollOffsetOutInit = parseInt(backTop.getAttribute('data-offset-out')) || 0,
       scrollOffset = 0,
       scrollOffsetOut = 0,
       scrolling = false;
 
-    // check if target-in/target-out have been set
     var targetIn = backTop.getAttribute('data-target-in') ? document.querySelector(backTop.getAttribute('data-target-in')) : false,
       targetOut = backTop.getAttribute('data-target-out') ? document.querySelector(backTop.getAttribute('data-target-out')) : false;
 
     updateOffsets();
-    
-    //detect click on back-to-top link
-    backTop.addEventListener('click', function(event) {
+
+    backTop.addEventListener('click', function (event) {
       event.preventDefault();
-      if(!window.requestAnimationFrame) {
+      if (!window.requestAnimationFrame) {
         scrollElement.scrollTo(0, 0);
       } else {
-        dataElement ? scrollElement.scrollTo({top: 0, behavior: 'smooth'}) : window.scrollTo({top: 0, behavior: 'smooth'});
-      } 
-      //move the focus to the #top-element - don't break keyboard navigation
+        dataElement ? scrollElement.scrollTo({ top: 0, behavior: 'smooth' }) : window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
       moveFocus(document.getElementById(backTop.getAttribute('href').replace('#', '')));
     });
-    
-    //listen to the window scroll and update back-to-top visibility
+
     checkBackToTop();
     if (scrollOffset > 0 || scrollOffsetOut > 0) {
-      scrollElement.addEventListener("scroll", function(event) {
-        if( !scrolling ) {
+      scrollElement.addEventListener("scroll", function (event) {
+        if (!scrolling) {
           scrolling = true;
-          (!window.requestAnimationFrame) ? setTimeout(function(){checkBackToTop();}, 250) : window.requestAnimationFrame(checkBackToTop);
+          (!window.requestAnimationFrame) ? setTimeout(function () { checkBackToTop(); }, 250) : window.requestAnimationFrame(checkBackToTop);
         }
       });
     }
@@ -694,9 +740,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkBackToTop() {
       updateOffsets();
       var windowTop = scrollElement.scrollTop || document.documentElement.scrollTop;
-      if(!dataElement) windowTop = window.scrollY || document.documentElement.scrollTop;
-      var condition =  windowTop >= scrollOffset;
-      if(scrollOffsetOut > 0) {
+      if (!dataElement) windowTop = window.scrollY || document.documentElement.scrollTop;
+      var condition = windowTop >= scrollOffset;
+      if (scrollOffsetOut > 0) {
         condition = (windowTop >= scrollOffset) && (window.innerHeight + windowTop < scrollOffsetOut);
       }
       backTop.classList.toggle('back-to-top--is-visible', condition);
@@ -710,31 +756,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getOffset(target, startOffset, bool) {
       var offset = 0;
-      if(target) {
+      if (target) {
         var windowTop = scrollElement.scrollTop || document.documentElement.scrollTop;
-        if(!dataElement) windowTop = window.scrollY || document.documentElement.scrollTop;
+        if (!dataElement) windowTop = window.scrollY || document.documentElement.scrollTop;
         var boundingClientRect = target.getBoundingClientRect();
         offset = bool ? boundingClientRect.bottom : boundingClientRect.top;
         offset = offset + windowTop;
       }
-      if(startOffset && startOffset) {
-        offset = offset + parseInt(startOffset);
-      }
+      if (startOffset) { offset += parseInt(startOffset); }
       return offset;
     }
 
     function moveFocus(element) {
-      if( !element ) element = document.getElementsByTagName("body")[0];
+      if (!element) element = document.getElementsByTagName("body")[0];
       element.focus();
       if (document.activeElement !== element) {
-        element.setAttribute('tabindex','-1');
+        element.setAttribute('tabindex', '-1');
         element.focus();
       }
     };
   }
 }());
 
-// Зарежда footer-a автоматично
 fetch('footer.html')
   .then(res => res.text())
   .then(html => {
