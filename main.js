@@ -28,6 +28,7 @@ function loadTab(filename) {
           populateClientFilter(jsonData);
 
           if (currentTab === 'dashboard') {
+            sessionStorage.setItem('currentTab', currentTab);
             const contentBox = document.getElementById('dashboard-content');
             const warning = document.getElementById('select-warning');
 
@@ -47,6 +48,7 @@ function loadTab(filename) {
           }
 
           if (currentTab === 'reporting') {
+            sessionStorage.setItem('currentTab', currentTab);
             const table = document.getElementById('reporting-table');
             const warning = document.getElementById('select-warning-reporting');
 
@@ -69,21 +71,25 @@ function loadTab(filename) {
     });
 }
 
-// Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
-  loadTab('dashboard.html');
+  const savedTab = sessionStorage.getItem('currentTab') || 'dashboard';
+  loadTab(`${savedTab}.html`);
+  
+  const intro = document.getElementById('intro');
+const introShown = sessionStorage.getItem('introShown');
 
+if (!introShown && intro) {
   setTimeout(() => {
-    const intro = document.getElementById('intro');
-    const app = document.getElementById('app-wrapper');
-
     intro.classList.add('animate__fadeOut');
-
     intro.addEventListener('animationend', () => {
       intro.remove();
-      app.classList.remove('hidden');
     });
-  }, 3000);
+    sessionStorage.setItem('introShown', 'true');
+  }, 2500);
+} else if (intro) {
+  intro.remove();
+}
+
 });
 
 //DASHBOARD
@@ -109,11 +115,43 @@ function populateClientFilter(data) {
     select.appendChild(option);
   });
 
+
+  const savedClient = sessionStorage.getItem('selectedClient');
+if (savedClient) {
+  select.value = savedClient;
+  selectedClient = savedClient;
+
+  const filtered = savedClient === 'all' ? data : data.filter(d => d.Col006 === savedClient);
+
+  if (currentTab === 'dashboard') {
+    const contentBox = document.getElementById('dashboard-content');
+    const warning = document.getElementById('select-warning');
+    if (contentBox) contentBox.style.display = 'block';
+    if (warning) warning.style.display = 'none';
+
+    renderDashboardTable(filtered);
+    renderAllQuestionsChart(filtered);
+    renderTop3Chart(filtered);
+    renderBottom3Chart(filtered);
+  }
+
+  if (currentTab === 'reporting') {
+    const table = document.getElementById('reporting-table');
+    const warning = document.getElementById('select-warning-reporting');
+
+    if (table) table.style.display = 'block';
+    if (warning) warning.style.display = 'none';
+
+    renderReportingTable(filtered);
+  }
+}
+
   select.dataset.loaded = "true";
 
   select.addEventListener('change', () => {
     const client = select.value;
     selectedClient = client;
+    sessionStorage.setItem('selectedClient', client);
     const filtered = client === 'all' ? data : data.filter(d => d.Col006 === client);
 
 
