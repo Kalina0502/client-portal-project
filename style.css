@@ -636,9 +636,9 @@ body.dark-mode #dashboard-table.data-box {
 
 .theme-toggle {
     position: absolute;
-    top: 50%;
+    top: 10px;
     right: 20px;
-    transform: translateY(-1400%);
+    z-index: 10;
 }
 
 /* Back to top */
