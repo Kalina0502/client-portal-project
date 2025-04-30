@@ -748,3 +748,19 @@ th.sortable {
 th.sortable:hover {
     background-color: #9e9d9d;
 }
+
+.dashboard-summary {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    display: flex;
+    gap: 30px;
+    font-size: 1.1em;
+    justify-content: space-between;
+  }
+  .dark-mode .dashboard-summary {
+    background-color: #222;
+    color: #fff;
+  }
+  

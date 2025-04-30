@@ -32,6 +32,11 @@ function loadTab(filename) {
             const contentBox = document.getElementById('dashboard-content');
             const warning = document.getElementById('select-warning');
 
+            if (jsonData && selectedClient) {
+              const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
+              renderDashboardSummary(filtered);
+            }
+            
             if (selectedClient && selectedClient !== 'Client Filter') {
               const filtered = selectedClient === 'all' ? jsonData : jsonData.filter(d => d.Col006 === selectedClient);
               if (contentBox) contentBox.style.display = 'block';
@@ -165,6 +170,7 @@ if (savedClient) {
       renderAllQuestionsChart(filtered);
       renderTop3Chart(filtered);
       renderBottom3Chart(filtered);
+      renderDashboardSummary(filtered);
     }
 
     if (currentTab === 'reporting') {
@@ -904,4 +910,41 @@ function sortReporting(by) {
   });
 
   renderReportingTable(sorted);
+}
+
+function renderDashboardSummary(data) {
+  const summaryBox = document.getElementById('dashboard-summary');
+  if (!summaryBox) return;
+
+  const questions = [...new Set(data.map(d => d.Col005))];
+
+  let totalResponses = 0;
+  let totalTopPercents = 0;
+
+  questions.forEach(q => {
+    const questionData = data.filter(d => d.Col005 === q);
+    const grouped = {};
+
+    questionData.forEach(row => {
+      const answer = row.Col002;
+      const count = parseInt(row.Col003);
+      if (!grouped[answer]) grouped[answer] = 0;
+      grouped[answer] += count;
+    });
+
+    const total = Object.values(grouped).reduce((a, b) => a + b, 0);
+    const top = Math.max(...Object.values(grouped));
+    const percent = total > 0 ? (top / total) * 100 : 0;
+
+    totalResponses += total;
+    totalTopPercents += percent;
+  });
+
+  const avgTop = questions.length > 0 ? (totalTopPercents / questions.length).toFixed(1) : 0;
+
+  summaryBox.innerHTML = `
+    <div><strong>📊 Total Questions:</strong> ${questions.length}</div>
+    <div><strong>✅ Avg. Top Answer:</strong> ${avgTop}%</div>
+    <div><strong>👥 Total Responses:</strong> ${totalResponses}</div>
+  `;
 }
