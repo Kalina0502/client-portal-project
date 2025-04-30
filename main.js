@@ -68,6 +68,18 @@ function loadTab(filename) {
 // Dashboard таб по подразбиране при стартиране
 window.addEventListener('DOMContentLoaded', () => {
   loadTab('dashboard.html');
+
+  setTimeout(() => {
+    const intro = document.getElementById('intro');
+    const app = document.getElementById('app-wrapper');
+
+    intro.classList.add('animate__fadeOut');
+
+    intro.addEventListener('animationend', () => {
+      intro.remove();
+      app.classList.remove('hidden');
+    });
+  }, 3000);
 });
 
 //DASHBOARD
@@ -785,4 +797,3 @@ fetch('footer.html')
   });
 
 
-  
