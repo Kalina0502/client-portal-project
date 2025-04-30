@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
+/* 
 header {
     background: #f3f3f3;
     padding: 8px;
@@ -35,6 +35,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #f3f3f3;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    height: 60px;
 }
 
 .filter-wrapper {
@@ -55,6 +70,7 @@ header {
     height: 100%;
     display: flex;
     width: 100%;
+    margin-top: 75px;
 }
 
 .custom-select {
