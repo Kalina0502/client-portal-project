@@ -27,15 +27,6 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-/* 
-header {
-    background: #f3f3f3;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 header {
     position: fixed;
@@ -446,6 +437,18 @@ footer {
 }
 
 /* Dark mode */
+body.dark-mode .chart-box,
+body.dark-mode .data-box {
+    background-color: #1e1e1e; 
+    color: #f1f1f1;
+    border-color: #333;
+}
+
+body.dark-mode .chart-box,
+body.dark-mode .data-box {
+    box-shadow: none;
+}
+
 body.dark-mode {
     background-color: #111;
     color: white;
