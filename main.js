@@ -783,3 +783,6 @@ fetch('footer.html')
   .then(html => {
     document.getElementById('footer-area').innerHTML = html;
   });
+
+
+  
