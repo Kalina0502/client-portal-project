@@ -1,5 +1,5 @@
 
-# Client Feedback Dashboard
+# Client Feedback
 
 This is a dynamic web dashboard that visualizes client feedback data with filtering, reporting, and interactive charts.
 
