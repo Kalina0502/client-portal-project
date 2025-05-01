@@ -1,83 +1,84 @@
-//REPORTING
+// Renders the reporting table with questions, top answers, and expandable details
 function renderReportingTable(data) {
     const tableBody = document.getElementById('reporting-table-body');
     tableBody.innerHTML = '';
-  
+
     const grouped = {};
-  
+
     data.forEach(row => {
-      const question = row.Col005;
-      const answer = row.Col002;
-      const count = parseInt(row.Col003);
-  
-      if (!grouped[question]) {
-        grouped[question] = {
-          total: 0,
-          answers: {}
-        };
-      }
-  
-      grouped[question].total += count;
-      grouped[question].answers[answer] = (grouped[question].answers[answer] || 0) + count;
+        const question = row.Col005;
+        const answer = row.Col002;
+        const count = parseInt(row.Col003);
+
+        if (!grouped[question]) {
+            grouped[question] = {
+                total: 0,
+                answers: {}
+            };
+        }
+
+        grouped[question].total += count;
+        grouped[question].answers[answer] = (grouped[question].answers[answer] || 0) + count;
     });
-  
+
     Object.entries(grouped).forEach(([question, info]) => {
-      const tr = document.createElement('tr');
-      tr.classList.add('reporting-row');
-  
-      // намиране на top answer и неговия процент
-      const [topAnswerText, topAnswerCount] = Object.entries(info.answers)
-        .sort((a, b) => b[1] - a[1])[0];
-  
-      const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
-  
-      // Определяне на класа за цвят
-      let colorClass = '';
-      if (topAnswerPercentage > 90) {
-        colorClass = 'top-answer-green';
-      } else if (topAnswerPercentage >= 50 && topAnswerPercentage <= 90) {
-        colorClass = 'top-answer-orange';
-      } else {
-        colorClass = 'top-answer-red';
-      }
-  
-      const topAnswerHtml = `
+        const tr = document.createElement('tr');
+        tr.classList.add('reporting-row');
+
+        // Find top answer and its percentage
+        const [topAnswerText, topAnswerCount] = Object.entries(info.answers)
+            .sort((a, b) => b[1] - a[1])[0];
+
+        const topAnswerPercentage = ((topAnswerCount / info.total) * 100).toFixed(2);
+
+        // Determine color class based on percentage
+        let colorClass = '';
+        if (topAnswerPercentage > 90) {
+            colorClass = 'top-answer-green';
+        } else if (topAnswerPercentage >= 50 && topAnswerPercentage <= 90) {
+            colorClass = 'top-answer-orange';
+        } else {
+            colorClass = 'top-answer-red';
+        }
+
+        const topAnswerHtml = `
     <div class="top-answer-cell ${colorClass}">
       <div class="top-answer-text">${topAnswerText}</div>
       <div class="top-answer-percent">${topAnswerPercentage}%</div>
     </div>
   `;
-  
-      const questionTd = document.createElement('td');
-      questionTd.innerText = question;
-  
-      const topAnswerTd = document.createElement('td');
-      topAnswerTd.innerHTML = topAnswerHtml;
-  
-      const totalTd = document.createElement('td');
-      totalTd.classList.add('responses-cell');
-      totalTd.innerHTML = `
+
+        const questionTd = document.createElement('td');
+        questionTd.innerText = question;
+
+        const topAnswerTd = document.createElement('td');
+        topAnswerTd.innerHTML = topAnswerHtml;
+
+        const totalTd = document.createElement('td');
+        totalTd.classList.add('responses-cell');
+        totalTd.innerHTML = `
         <span class="response-count">${info.total}</span>
         <span class="arrow-icon">▼</span>
       `;
-  
-      const arrowIcon = totalTd.querySelector('.arrow-icon');
-  
-      tr.appendChild(questionTd);
-      tr.appendChild(topAnswerTd);
-      tr.appendChild(totalTd);
-  
-      const subRow = document.createElement('tr');
-      const subCell = document.createElement('td');
-      subCell.colSpan = 4;
-      subCell.style.padding = '0';
-      subCell.style.backgroundColor = '#fafafa';
-      subCell.style.display = 'none';
-  
-      const subTable = document.createElement('table');
-      subTable.classList.add('sub-table');
-      subTable.style.width = '100%';
-      subTable.innerHTML = `
+
+        const arrowIcon = totalTd.querySelector('.arrow-icon');
+
+        tr.appendChild(questionTd);
+        tr.appendChild(topAnswerTd);
+        tr.appendChild(totalTd);
+
+        // Expandable sub-row with breakdown of answers
+        const subRow = document.createElement('tr');
+        const subCell = document.createElement('td');
+        subCell.colSpan = 4;
+        subCell.style.padding = '0';
+        subCell.style.backgroundColor = '#fafafa';
+        subCell.style.display = 'none';
+
+        const subTable = document.createElement('table');
+        subTable.classList.add('sub-table');
+        subTable.style.width = '100%';
+        subTable.innerHTML = `
         <thead>
           <tr>
             <th class="left-align">Answer</th>
@@ -87,12 +88,12 @@ function renderReportingTable(data) {
         </thead>
        <tbody>
     ${Object.entries(info.answers)
-          .sort((a, b) => b[1] - a[1])
-          .map(([answer, count], idx) => {
-            const percent = ((count / info.total) * 100).toFixed(2);
-            const isTop = idx === 0 && count > 0;
-  
-            return `
+                .sort((a, b) => b[1] - a[1])
+                .map(([answer, count], idx) => {
+                    const percent = ((count / info.total) * 100).toFixed(2);
+                    const isTop = idx === 0 && count > 0;
+
+                    return `
             <tr>
               <td class="left-align">
                 ${answer}
@@ -112,103 +113,105 @@ function renderReportingTable(data) {
               <td class="right-align">${count}</td>
             </tr>
           `;
-          }).join('')
-        }
+                }).join('')
+            }
   </tbody>
       `;
-  
-      const subContentWrapper = document.createElement('div');
-      subContentWrapper.classList.add('sub-content-wrapper');
-      subContentWrapper.appendChild(subTable);
-      subCell.appendChild(subContentWrapper);
-      subRow.appendChild(subCell);
-  
-      const innerIcon = subCell.querySelector('.top-icon-wrapper');
-      if (innerIcon) {
-        attachPopperJS(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
-      }
-  
-      tr.addEventListener('click', () => {
-        const contentWrapper = subCell.querySelector('.sub-content-wrapper');
-  
-        if (subCell.style.display === 'none' || subCell.style.display === '') {
-          subCell.style.display = 'table-cell';
-          const fullHeight = contentWrapper.scrollHeight;
-          contentWrapper.style.height = fullHeight + 'px';
-          arrowIcon.textContent = '▲';
-          tr.classList.add('active-row');
+
+        const subContentWrapper = document.createElement('div');
+        subContentWrapper.classList.add('sub-content-wrapper');
+        subContentWrapper.appendChild(subTable);
+        subCell.appendChild(subContentWrapper);
+        subRow.appendChild(subCell);
+
+        const innerIcon = subCell.querySelector('.top-icon-wrapper');
+        if (innerIcon) {
+            attachPopperJS(innerIcon, "Top Answer - a measure that identifies the value that appears most frequently in a set of data.");
         }
-        else {
-          contentWrapper.style.height = '0px';
-          arrowIcon.textContent = '▼';
-          tr.classList.remove('active-row');
-  
-          contentWrapper.addEventListener('transitionend', function hideSubCell() {
-            subCell.style.display = 'none';
-            contentWrapper.removeEventListener('transitionend', hideSubCell);
-          });
-        }
-      });
-  
-      tableBody.appendChild(tr);
-      tableBody.appendChild(subRow);
+
+        // Toggle sub-row on click
+        tr.addEventListener('click', () => {
+            const contentWrapper = subCell.querySelector('.sub-content-wrapper');
+
+            if (subCell.style.display === 'none' || subCell.style.display === '') {
+                subCell.style.display = 'table-cell';
+                const fullHeight = contentWrapper.scrollHeight;
+                contentWrapper.style.height = fullHeight + 'px';
+                arrowIcon.textContent = '▲';
+                tr.classList.add('active-row');
+            }
+            else {
+                contentWrapper.style.height = '0px';
+                arrowIcon.textContent = '▼';
+                tr.classList.remove('active-row');
+
+                contentWrapper.addEventListener('transitionend', function hideSubCell() {
+                    subCell.style.display = 'none';
+                    contentWrapper.removeEventListener('transitionend', hideSubCell);
+                });
+            }
+        });
+
+        tableBody.appendChild(tr);
+        tableBody.appendChild(subRow);
     });
-  }
-
-  let currentSort = { column: null, direction: 'desc' };
-
-function sortReporting(by) {
-  const data = getFilteredData();
-  const sorted = [...data];
-
-  if (currentSort.column === by) {
-    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-  } else {
-    currentSort.column = by;
-    currentSort.direction = 'desc';
-  }
-
-  const multiplier = currentSort.direction === 'asc' ? 1 : -1;
-
-  sorted.sort((a, b) => {
-    const aTop = getTopAnswer(a);
-    const bTop = getTopAnswer(b);
-
-    if (by === 'top') {
-      return (aTop.percent - bTop.percent) * multiplier;
-    } else if (by === 'responses') {
-      return (aTop.count - bTop.count) * multiplier;
-    }
-
-    return 0;
-  });
-
-  renderReportingTable(sorted);
 }
 
+// Sorts reporting table by top answer % or total responses
+let currentSort = { column: null, direction: 'desc' };
+
+function sortReporting(by) {
+    const data = getFilteredData();
+    const sorted = [...data];
+
+    if (currentSort.column === by) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort.column = by;
+        currentSort.direction = 'desc';
+    }
+
+    const multiplier = currentSort.direction === 'asc' ? 1 : -1;
+
+    sorted.sort((a, b) => {
+        const aTop = getTopAnswer(a);
+        const bTop = getTopAnswer(b);
+
+        if (by === 'top') {
+            return (aTop.percent - bTop.percent) * multiplier;
+        } else if (by === 'responses') {
+            return (aTop.count - bTop.count) * multiplier;
+        }
+
+        return 0;
+    });
+
+    renderReportingTable(sorted);
+}
+
+// Helper: returns top answer info (text, count, percent) for a question
 function getTopAnswer(entry) {
     const question = entry.Col005;
     const filtered = jsonData.filter(d => d.Col005 === question && (!selectedClient || selectedClient === 'all' || d.Col006 === selectedClient));
-  
+
     const grouped = {};
     let total = 0;
-  
+
     filtered.forEach(row => {
-      const answer = row.Col002;
-      const count = parseInt(row.Col003);
-  
-      if (!grouped[answer]) grouped[answer] = 0;
-      grouped[answer] += count;
-      total += count;
+        const answer = row.Col002;
+        const count = parseInt(row.Col003);
+
+        if (!grouped[answer]) grouped[answer] = 0;
+        grouped[answer] += count;
+        total += count;
     });
-  
+
     const [topAnswerText, topAnswerCount] = Object.entries(grouped).sort((a, b) => b[1] - a[1])[0] || ["", 0];
     const percent = total > 0 ? ((topAnswerCount / total) * 100).toFixed(2) : 0;
-  
+
     return {
-      text: topAnswerText,
-      count: topAnswerCount,
-      percent: parseFloat(percent)
+        text: topAnswerText,
+        count: topAnswerCount,
+        percent: parseFloat(percent)
     };
-  }
-  
+}

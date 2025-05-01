@@ -2,6 +2,7 @@ let selectedClient = null;
 let currentTab = null;
 let jsonData = [];
 
+// Loads the selected tab (dashboard or reporting)
 function loadTab(filename) {
   const targetTab = filename.includes('reporting') ? 'reporting' : 'dashboard';
   const contentArea = document.getElementById('content-area');
@@ -16,18 +17,20 @@ function loadTab(filename) {
 
       currentTab = targetTab;
 
-      // Активира бутоните
+      // Highlights the active sidebar button
       const buttons = document.querySelectorAll('.sidebar button');
       buttons.forEach(btn => btn.classList.remove('active'));
       if (filename === 'dashboard.html') buttons[0].classList.add('active');
       if (filename === 'reporting.html') buttons[1].classList.add('active');
 
+      // Fetches data from the API
       fetch('/api/data')
         .then(res => res.json())
         .then(data => {
           jsonData = data.data[0];
           populateClientFilter(jsonData);
 
+          // If current tab is dashboard
           if (currentTab === 'dashboard') {
             sessionStorage.setItem('currentTab', currentTab);
             const contentBox = document.getElementById('dashboard-content');
@@ -38,6 +41,7 @@ function loadTab(filename) {
               if (contentBox) contentBox.style.display = 'block';
               if (warning) warning.style.display = 'none';
 
+              // Render dashboard components
               renderDashboardTable(filtered);
               renderAllQuestionsChart(filtered);
               renderTop3Chart(filtered);
@@ -49,6 +53,7 @@ function loadTab(filename) {
             }
           }
 
+          // If current tab is reporting
           if (currentTab === 'reporting') {
             sessionStorage.setItem('currentTab', currentTab);
             const table = document.getElementById('reporting-table');
@@ -59,6 +64,7 @@ function loadTab(filename) {
               if (table) table.style.display = 'block';
               if (warning) warning.style.display = 'none';
 
+              // Render the reporting table
               renderReportingTable(filtered);
 
               document.getElementById('sort-top-answer')?.addEventListener('click', () => sortReporting('top'));
@@ -74,6 +80,7 @@ function loadTab(filename) {
     });
 }
 
+// On page load – display intro and restore last visited tab
 window.addEventListener('DOMContentLoaded', () => {
   const savedTab = sessionStorage.getItem('currentTab') || 'dashboard';
   loadTab(`${savedTab}.html`);
@@ -105,6 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// Populates the client filter dropdown
 function populateClientFilter(data) {
   const select = document.getElementById('clientFilter');
 
@@ -112,7 +120,7 @@ function populateClientFilter(data) {
 
   const clients = [...new Set(data.map(d => d.Col006))];
 
-  //All Clients
+  // Add 'All Clients' option
   const allOption = document.createElement('option');
   allOption.value = 'all';
   allOption.textContent = 'All Clients';
@@ -125,6 +133,7 @@ function populateClientFilter(data) {
     select.appendChild(option);
   });
 
+  // Load last selected client if available
   const savedClient = sessionStorage.getItem('selectedClient');
   if (savedClient) {
     select.value = savedClient;
@@ -157,6 +166,7 @@ function populateClientFilter(data) {
 
   select.dataset.loaded = "true";
 
+  // On client selection change, reload current view
   select.addEventListener('change', () => {
     const client = select.value;
     selectedClient = client;
@@ -190,6 +200,7 @@ function populateClientFilter(data) {
   });
 }
 
+// Returns chart colors depending on theme (dark/light)
 function getChartColors() {
   const isDark = document.body.classList.contains('dark-mode');
   return {
@@ -198,6 +209,7 @@ function getChartColors() {
   };
 }
 
+// Debounce function – limits rapid function calls
 function debounce(func, wait) {
   let timeout;
   return function (...args) {
@@ -206,6 +218,7 @@ function debounce(func, wait) {
   };
 }
 
+// Tooltip with Popper.js
 function attachPopperJS(targetElement, contentText) {
   const tooltip = document.createElement('div');
   tooltip.className = 'popper-tooltip';
@@ -251,6 +264,7 @@ function attachPopperJS(targetElement, contentText) {
   targetElement.addEventListener('mouseleave', hide);
 }
 
+// Handles theme toggle and chart update on theme change
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
 
@@ -261,11 +275,13 @@ document.addEventListener('DOMContentLoaded', () => {
       updateChartsTheme();
     });
 
+    // Attach sort buttons for reporting tab (if loaded)
     document.getElementById('sort-top-answer')?.addEventListener('click', () => sortReporting('top'));
     document.getElementById('sort-responses')?.addEventListener('click', () => sortReporting('responses'));
   }
 });
 
+// Back to top button behavior and scroll logic
 (function () {
   var backTop = document.getElementsByClassName('js-back-to-top')[0];
   if (backTop) {
@@ -303,6 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Toggle visibility of the back-to-top button
     function checkBackToTop() {
       updateOffsets();
       var windowTop = scrollElement.scrollTop || document.documentElement.scrollTop;
@@ -315,6 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrolling = false;
     }
 
+    // Calculates dynamic scroll offsets
     function updateOffsets() {
       scrollOffset = getOffset(targetIn, scrollOffsetInit, true);
       scrollOffsetOut = getOffset(targetOut, scrollOffsetOutInit);
@@ -333,6 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return offset;
     }
 
+    // Moves keyboard focus to element
     function moveFocus(element) {
       if (!element) element = document.getElementsByTagName("body")[0];
       element.focus();
@@ -344,12 +363,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 }());
 
+// Loads footer content dynamically
 fetch('footer.html')
   .then(res => res.text())
   .then(html => {
     document.getElementById('footer-area').innerHTML = html;
   });
 
+// Returns filtered data based on selected client
 function getFilteredData() {
   if (!selectedClient || selectedClient === 'Client Filter') return [];
   return selectedClient === 'all'
