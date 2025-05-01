@@ -2,9 +2,6 @@
   "name": "client-portal-project",
   "version": "1.0.0",
   "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kalina0502/client-portal-project.git"
@@ -18,6 +15,16 @@
   "homepage": "https://github.com/Kalina0502/client-portal-project#readme",
   "description": "",
   "dependencies": {
-    "@floating-ui/dom": "^1.6.13"
+    "@floating-ui/dom": "^1.6.13",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.10"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "dev:server": "nodemon server/server.js",
+    "dev": "nodemon server/server.js"
   }
 }
