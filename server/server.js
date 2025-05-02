@@ -14,20 +14,20 @@ app.get('/api/data', (req, res) => {
     const dataFilePath = path.join(__dirname, 'data.json');
     fs.readFile(dataFilePath, 'utf8', (err, jsonString) => {
         if (err) {
-            console.error('Грешка при четене на файла:', err);
-            return res.status(500).send('Грешка при зареждане на данните.');
+            console.error('Error reading the file:', err);
+            return res.status(500).send('Error loading the data.');
         }
         try {
             const data = JSON.parse(jsonString);   // парсваме JSON стринга към обект
             res.json(data);  // връщаме JSON отговора към клиента
         } catch(parseErr) {
-            console.error('Грешка при парсване на JSON:', parseErr);
-            res.status(500).send('Невалидни данни.');
+            console.error('Error parsing JSON:', parseErr);
+            res.status(500).send('Invalid data format.');
         }
     });
 });
 
 // 3. Стартиране на сървъра
 app.listen(PORT, () => {
-    console.log(`Express сървърът е стартиран на порт ${PORT}`);
+    console.log(`Express server is running on port ${PORT}`);
 });
