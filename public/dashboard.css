@@ -1,0 +1,92 @@
+#dashboard-content {
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.data-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 95%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+    width: 100%;
+}
+
+.data-box table {
+    table-layout: auto;
+    width: 100%;
+    min-width: 600px;
+}
+
+.data-box th {
+    padding: 12px 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.data-box td {
+    padding: 12px 15px;
+    vertical-align: top;
+    text-align: justify;
+}
+
+.data-box thead {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.data-box tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+#dashboard-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#dashboard-table table {
+    border-radius: 10px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+/* Chart Boxes */
+.chart-box {
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    min-height: 400px;
+    overflow-x: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.highcharts-title {
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    fill: currentColor !important;
+}
+
+/* Dashboard Summary */
+.dashboard-summary {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    display: flex;
+    gap: 30px;
+    font-size: 1.1em;
+    justify-content: space-between;
+}
+
+/* Highcharts Overrides */
+.highcharts-container,
+.highcharts-background {
+    background: transparent !important;
+}

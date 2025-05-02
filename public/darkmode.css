@@ -1,0 +1,132 @@
+body.dark-mode .chart-box,
+body.dark-mode .data-box {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border-color: #333;
+}
+
+body.dark-mode .chart-box,
+body.dark-mode .data-box {
+    box-shadow: none;
+}
+
+body.dark-mode {
+    background-color: #111;
+    color: #fff;
+}
+
+body.dark-mode .sidebar {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode header {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode select,
+body.dark-mode input,
+body.dark-mode button {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
+
+body.dark-mode th {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-mode td {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+/* Top Answer Cells */
+body.dark-mode .top-answer-green {
+    background-color: #276749 !important;
+    color: #fff !important;
+}
+
+body.dark-mode .top-answer-orange {
+    background-color: #9c5619 !important;
+    color: #fff !important;
+}
+
+body.dark-mode .top-answer-red {
+    background-color: #822727 !important;
+    color: #fff !important;
+}
+
+body.dark-mode .sub-table {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode .top-answer-cell .top-answer-text,
+body.dark-mode .top-answer-cell .top-answer-percent {
+    color: #fff !important;
+}
+
+body.dark-mode .main-layout table {
+    background-color: transparent;
+}
+
+body.dark-mode .main-report-table {
+    background-color: #1f1f1f;
+    color: #fff;
+}
+
+body.dark-mode .main-report-table td {
+    background-color: #2b2b2b;
+    color: #ccc;
+}
+
+body.dark-mode #dashboard-table.data-box {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+body.dark-mode #reporting-table {
+    background-color: #1a1a1a !important;
+    color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+}
+
+body.dark-mode .sub-table thead th {
+    background-color: #4b4848;
+    color: #ccc;
+}
+
+body.dark-mode .footer-links a {
+    color: #ccc;
+}
+
+body.dark-mode .footer-copy {
+    color: #ccc;
+}
+
+body.dark-mode #select-warning,
+body.dark-mode .select-warning {
+    background: transparent;
+    border: none;
+    color: #ccc;
+    padding: 0;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Dashboard Summary (Dark Mode) */
+.dark-mode .dashboard-summary {
+    background-color: #222;
+    color: #fff;
+}
