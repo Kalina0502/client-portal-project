@@ -21,20 +21,7 @@ This is a dynamic web dashboard that visualizes client feedback data with filter
 
 ## Project Structure
 
-├── public/
-│   ├── dashboard.html
-│   ├── reporting.html
-│   ├── index.html
-│   ├── main.js
-│   ├── dashboard.js
-│   ├── reporting.js
-│   ├── style.css
-│   └── footer.html
-├── server/
-│   ├── server.js
-│   └── data.json
-├── package.json
-└── README.md
+<pre> public/ ├── css/ → Stylesheets │ ├── style.css → Shared global styles │ ├── dashboard.css → Dashboard-specific styles │ ├── reporting.css → Reporting-specific styles │ └── darkmode.css → Dark mode styles │ ├── js/ → JavaScript modules │ ├── main.js → Main app logic and navigation │ ├── dashboard.js → Dashboard logic and rendering │ └── reporting.js → Reporting logic and interactivity │ ├── index.html → App entry point ├── dashboard.html → Dashboard tab structure ├── reporting.html → Reporting tab structure └── footer.html → Shared footer content </pre>
 
 ## Setup & Run
 
