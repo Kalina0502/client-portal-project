@@ -161,33 +161,55 @@ function renderReportingTable(data) {
 let currentSort = { column: null, direction: 'desc' };
 
 function sortReporting(by) {
-    const data = getFilteredData();
-    const sorted = [...data];
+  const data = getFilteredData();
+  const sorted = [...data];
 
-    if (currentSort.column === by) {
-        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
-    } else {
-        currentSort.column = by;
-        currentSort.direction = 'desc';
+  // Определяме посоката
+  if (currentSort.column === by) {
+    currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+  } else {
+    currentSort.column = by;
+    currentSort.direction = 'desc';
+  }
+
+  const multiplier = currentSort.direction === 'asc' ? 1 : -1;
+
+  sorted.sort((a, b) => {
+    const aTop = getTopAnswer(a);
+    const bTop = getTopAnswer(b);
+
+    if (by === 'top') {
+      return (aTop.percent - bTop.percent) * multiplier;
+    } else if (by === 'responses') {
+      return (aTop.count - bTop.count) * multiplier;
     }
 
-    const multiplier = currentSort.direction === 'asc' ? 1 : -1;
+    return 0;
+  });
 
-    sorted.sort((a, b) => {
-        const aTop = getTopAnswer(a);
-        const bTop = getTopAnswer(b);
+  renderReportingTable(sorted);
 
-        if (by === 'top') {
-            return (aTop.percent - bTop.percent) * multiplier;
-        } else if (by === 'responses') {
-            return (aTop.count - bTop.count) * multiplier;
-        }
+  // Актуализиране на стрелките
+  const arrowTop = document.getElementById('arrow-top');
+  const arrowResponses = document.getElementById('arrow-responses');
 
-        return 0;
-    });
+  // Нулираме визуализацията
+  arrowTop.textContent = '▲';
+  arrowResponses.textContent = '▲';
+  arrowTop.classList.remove('active');
+  arrowResponses.classList.remove('active');
 
-    renderReportingTable(sorted);
+  const directionArrow = currentSort.direction === 'asc' ? '▲' : '▼';
+
+  if (by === 'top') {
+    arrowTop.textContent = directionArrow;
+    arrowTop.classList.add('active');
+  } else if (by === 'responses') {
+    arrowResponses.textContent = directionArrow;
+    arrowResponses.classList.add('active');
+  }
 }
+
 
 // Helper: returns top answer info (text, count, percent) for a question
 function getTopAnswer(entry) {

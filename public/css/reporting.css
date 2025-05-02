@@ -189,3 +189,16 @@ th.sortable {
 th.sortable:hover {
     background-color: #9e9d9d;
 }
+
+.sortable {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 10px;
+    transition: background-color 0.2s ease;
+}
+
+.sortable:hover {
+    background-color: #d4d4d4;
+}
