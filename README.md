@@ -21,20 +21,24 @@ This is a dynamic web dashboard that visualizes client feedback data with filter
 
 ## Project Structure
 
-<pre>├── public/
-│   ├── dashboard.html
-│   ├── reporting.html
-│   ├── index.html
-│   ├── main.js
-│   ├── dashboard.js
-│   ├── reporting.js
-│   ├── style.css
-│   └── footer.html
-├── server/
-│   ├── server.js
-│   └── data.json
-├── package.json
-└── README.md</pre>
+<pre>public/
+│
+├── css/
+│   ├── style.css    
+│   ├── dashboard.css
+│   ├── reporting.css
+│   └── darkmode.css 
+│
+├── js/
+│   ├── main.js      
+│   ├── dashboard.js 
+│   └── reporting.js 
+│
+├── index.html
+├── dashboard.html
+├── reporting.html
+└── footer.html
+</pre>
 
 ## Setup & Run
 
