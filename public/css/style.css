@@ -292,3 +292,58 @@ footer {
     font-size: 13px;
     color: #777;
 }
+
+/*Reporting & Dashboard buttons*/
+.draw-border {
+    box-shadow: inset 0 0 0 2px #888;
+    color: #1f1f1f;
+    background-color: transparent;
+    border-radius: 8px;
+    transition: color 0.25s, background-color 0.25s;
+    position: relative;
+}
+
+.draw-border::before,
+.draw-border::after {
+    border-radius: 8px;
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.draw-border::before {
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+}
+
+.draw-border::after {
+    border-top-width: 2px;
+    border-right-width: 2px;
+}
+
+.draw-border:hover {
+    color: #333;
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.draw-border:hover::before,
+.draw-border:hover::after {
+    border-color: #312f2f;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+}
+
+.draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+}
