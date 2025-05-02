@@ -82,6 +82,16 @@ function loadTab(filename) {
 
 // On page load – display intro and restore last visited tab
 window.addEventListener('DOMContentLoaded', () => {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn && savedTheme === 'dark') {
+    themeToggleBtn.checked = true;
+  }
+
   const savedTab = sessionStorage.getItem('currentTab') || 'dashboard';
   loadTab(`${savedTab}.html`);
 
