@@ -21,24 +21,35 @@ This is a dynamic web dashboard that visualizes client feedback data with filter
 
 ## Project Structure
 
-<pre>public/
+<pre>client-portal-project/
 │
-├── css/
-│   ├── style.css    
-│   ├── dashboard.css
-│   ├── reporting.css
-│   └── darkmode.css 
+├── node_modules/                # Installed npm packages (ignored by Git)
 │
-├── js/
-│   ├── main.js      
-│   ├── dashboard.js 
-│   └── reporting.js 
+├── public/                      # Static frontend assets
+│   ├── css/
+│   │   ├── style.css            # Shared layout styles
+│   │   ├── dashboard.css        # Styles for dashboard view
+│   │   ├── reporting.css        # Styles for reporting view
+│   │   └── darkmode.css         # Dark mode theme styles
+│   │
+│   ├── js/
+│   │   ├── main.js              # Tab switching, data fetch & routing
+│   │   ├── dashboard.js         # Dashboard rendering logic
+│   │   └── reporting.js         # Reporting table rendering & sorting
+│   │
+│   ├── index.html               # Entry point of the SPA
+│   ├── dashboard.html           # Dashboard tab content
+│   ├── reporting.html           # Reporting tab content
+│   └── footer.html              # Shared footer (loaded via fetch)
 │
-├── index.html
-├── dashboard.html
-├── reporting.html
-└── footer.html
-</pre>
+├── server/
+│   ├── server.js                # Express server with static & API routes
+│   └── data.json                # Mock data for API
+│
+├── .gitignore                   # Files to ignore in Git (node_modules, etc.)
+├── README.md                    # Project documentation
+├── package.json                 # Project dependencies and scripts
+└── package-lock.json            # Exact dependency versions</pre>
 
 ## Setup & Run
 
