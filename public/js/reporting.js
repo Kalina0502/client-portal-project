@@ -189,11 +189,9 @@ function sortReporting(by) {
 
   renderReportingTable(sorted);
 
-  // Актуализиране на стрелките
   const arrowTop = document.getElementById('arrow-top');
   const arrowResponses = document.getElementById('arrow-responses');
 
-  // Нулираме визуализацията
   arrowTop.textContent = '▲';
   arrowResponses.textContent = '▲';
   arrowTop.classList.remove('active');
