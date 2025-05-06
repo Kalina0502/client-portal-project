@@ -218,7 +218,7 @@ function getChartColors() {
     textColor: isDark ? '#ffffff' : '#000000'
   };
 }
- 
+
 // Tooltip with Popper.js
 function attachPopperJS(targetElement, contentText) {
   const tooltip = document.createElement('div');
@@ -370,11 +370,3 @@ fetch('footer.html')
   .then(html => {
     document.getElementById('footer-area').innerHTML = html;
   });
-
-// Returns filtered data based on selected client
-function getFilteredData() {
-  if (!selectedClient || selectedClient === 'Client Filter') return [];
-  return selectedClient === 'all'
-    ? jsonData
-    : jsonData.filter(d => d.Col006 === selectedClient);
-}
