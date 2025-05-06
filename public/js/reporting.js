@@ -29,9 +29,19 @@ function renderReportingTable(data) {
     const [topAnswerText, topAnswerCount] = Object.entries(info.answers)
       .sort((a, b) => b[1] - a[1])[0];
 
-    const rawTopPercentage = info.total === 0 ? 0 : (topAnswerCount / info.total) * 100;
-    const topAnswerPercentage = Number.isInteger(rawTopPercentage) ? rawTopPercentage : rawTopPercentage.toFixed(2);
-
+      let rawTopPercentage;
+      if (info.total === 0) {
+        rawTopPercentage = 0;
+      } else {
+        rawTopPercentage = (topAnswerCount / info.total) * 100;
+      }
+      
+      let topAnswerPercentage;
+      if (Number.isInteger(rawTopPercentage)) {
+        topAnswerPercentage = rawTopPercentage;
+      } else {
+        topAnswerPercentage = rawTopPercentage.toFixed(2);
+      }
 
     // Determine color class based on percentage
     let colorClass = '';
