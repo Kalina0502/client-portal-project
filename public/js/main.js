@@ -218,16 +218,7 @@ function getChartColors() {
     textColor: isDark ? '#ffffff' : '#000000'
   };
 }
-
-// Debounce function – limits rapid function calls
-function debounce(func, wait) {
-  let timeout;
-  return function (...args) {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(this, args), wait);
-  };
-}
-
+ 
 // Tooltip with Popper.js
 function attachPopperJS(targetElement, contentText) {
   const tooltip = document.createElement('div');
